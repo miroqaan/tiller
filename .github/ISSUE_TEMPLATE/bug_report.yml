@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for taking the time. The three questions that decide how fast this gets fixed are **what you did**, **which engine the thread was on**, and **which version you are running** — the rest is optional.
 
-        If this looks like a security problem, close this and follow [SECURITY.md](https://github.com/miroqaan/tiller-app/blob/main/SECURITY.md) instead.
+        If this looks like a security problem, close this and follow [SECURITY.md](https://github.com/miroqaan/tiller/blob/main/SECURITY.md) instead.
 
   - type: textarea
     id: what-happened

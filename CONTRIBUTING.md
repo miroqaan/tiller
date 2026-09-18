@@ -7,7 +7,7 @@ got in the way.
 
 ## Issues
 
-Open one from the [templates](https://github.com/miroqaan/tiller-app/issues/new/choose):
+Open one from the [templates](https://github.com/miroqaan/tiller/issues/new/choose):
 
 - **Bug report** — something behaved wrong. The template asks what you did,
   which engine the thread was on, and the tiller version; those three answer
@@ -18,7 +18,7 @@ Open one from the [templates](https://github.com/miroqaan/tiller-app/issues/new/
 - **Question** — how something is meant to work, or whether a thing is
   possible.
 
-Search [existing issues](https://github.com/miroqaan/tiller-app/issues?q=is%3Aissue)
+Search [existing issues](https://github.com/miroqaan/tiller/issues?q=is%3Aissue)
 first. A 👍 on an existing request counts; a "+1" comment does not, and it
 notifies everyone subscribed.
 

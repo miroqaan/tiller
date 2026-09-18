@@ -1,6 +1,6 @@
 # Changelog
 
-Releases appear on the [Releases page](https://github.com/miroqaan/tiller-app/releases),
+Releases appear on the [Releases page](https://github.com/miroqaan/tiller/releases),
 each with its notes. This file collects them in one place.
 
 The version numbers are tiller's own. The engine versions a release carries are

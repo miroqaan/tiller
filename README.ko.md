@@ -3,9 +3,9 @@
   <h1>tiller</h1>
   <p><strong>에이전트가 일하는 동안에도 계속 입력할 수 있는 Claude Code · Codex 데스크톱 앱</strong></p>
   <p>
-    <a href="https://github.com/miroqaan/tiller-app/releases">릴리스</a> ·
-    <a href="https://github.com/miroqaan/tiller-app/issues/new/choose">버그 신고</a> ·
-    <a href="https://github.com/miroqaan/tiller-app/issues">이슈</a>
+    <a href="https://github.com/miroqaan/tiller/releases">릴리스</a> ·
+    <a href="https://github.com/miroqaan/tiller/issues/new/choose">버그 신고</a> ·
+    <a href="https://github.com/miroqaan/tiller/issues">이슈</a>
   </p>
 </div>
 
@@ -66,7 +66,7 @@ tiller는 그 빈자리를 메우는 프런트엔드다. 에이전트를 대체�
 
 ## 현재 상태
 
-tiller는 개발 중이고 **아직 인스톨러를 배포하지 않았다.** 릴리스는 이 저장소에 올라온다. 첫 배포 소식을 받으려면 [watch](https://github.com/miroqaan/tiller-app/subscription)를 걸어 두면 된다.
+tiller는 개발 중이고 **아직 인스톨러를 배포하지 않았다.** 릴리스는 이 저장소에 올라온다. 첫 배포 소식을 받으려면 [watch](https://github.com/miroqaan/tiller/subscription)를 걸어 두면 된다.
 
 | 플랫폼 | 상태 |
 |---|---|
@@ -78,11 +78,11 @@ tiller는 개발 중이고 **아직 인스톨러를 배포하지 않았다.** �
 
 ## 이슈와 요청
 
-**여기가 그 자리다.** 버그 신고, 기능 요청, 질문 모두 [Issues](https://github.com/miroqaan/tiller-app/issues/new/choose)로 보내면 된다. 템플릿이 묻는 것은 처리에 꼭 필요한 몇 가지뿐이다(무엇을 했는지, 어느 엔진인지, 어느 버전인지).
+**여기가 그 자리다.** 버그 신고, 기능 요청, 질문 모두 [Issues](https://github.com/miroqaan/tiller/issues/new/choose)로 보내면 된다. 템플릿이 묻는 것은 처리에 꼭 필요한 몇 가지뿐이다(무엇을 했는지, 어느 엔진인지, 어느 버전인지).
 
 앱 소스는 여기에 없다. tiller는 독점 소프트웨어이고 소스는 비공개 저장소에 있다. 이 저장소가 가진 것은 릴리스 다운로드, 이슈 트래커, 공개 문서다. `docs/` 문서에 대한 풀 리퀘스트는 환영한다.
 
-이슈를 열기 전에 [기존 이슈](https://github.com/miroqaan/tiller-app/issues?q=is%3Aissue)를 한 번 훑으면 서로 한 왕복을 아낀다. 보안 문제로 보이는 것은 공개 이슈 대신 [SECURITY.md](SECURITY.md)의 절차를 따른다.
+이슈를 열기 전에 [기존 이슈](https://github.com/miroqaan/tiller/issues?q=is%3Aissue)를 한 번 훑으면 서로 한 왕복을 아낀다. 보안 문제로 보이는 것은 공개 이슈 대신 [SECURITY.md](SECURITY.md)의 절차를 따른다.
 
 ## 주의
 

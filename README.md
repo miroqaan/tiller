@@ -3,9 +3,9 @@
   <h1>tiller</h1>
   <p><strong>A desktop app for Claude Code and Codex, built around one idea: keep typing while the agent works.</strong></p>
   <p>
-    <a href="https://github.com/miroqaan/tiller-app/releases">Releases</a> ·
-    <a href="https://github.com/miroqaan/tiller-app/issues/new/choose">Report a bug</a> ·
-    <a href="https://github.com/miroqaan/tiller-app/issues">Issues</a>
+    <a href="https://github.com/miroqaan/tiller/releases">Releases</a> ·
+    <a href="https://github.com/miroqaan/tiller/issues/new/choose">Report a bug</a> ·
+    <a href="https://github.com/miroqaan/tiller/issues">Issues</a>
   </p>
 </div>
 
@@ -66,7 +66,7 @@ Close the app and the queue is still there when you come back.
 
 ## Status
 
-tiller is in development and **no installer has been published yet**. This repository is where releases will appear — [watch it](https://github.com/miroqaan/tiller-app/subscription) to hear about the first one.
+tiller is in development and **no installer has been published yet**. This repository is where releases will appear — [watch it](https://github.com/miroqaan/tiller/subscription) to hear about the first one.
 
 | Platform | State |
 |---|---|
@@ -78,11 +78,11 @@ Installers will carry both engines, so the app works straight after installation
 
 ## Issues and requests
 
-**This repository is the place for them.** Bug reports, feature requests and questions all go to [Issues](https://github.com/miroqaan/tiller-app/issues/new/choose) — the templates ask for the few things that make a report actionable (what you did, which engine, which version).
+**This repository is the place for them.** Bug reports, feature requests and questions all go to [Issues](https://github.com/miroqaan/tiller/issues/new/choose) — the templates ask for the few things that make a report actionable (what you did, which engine, which version).
 
 The application source is not here. tiller is proprietary and its source lives in a private repository, so this repository holds the release downloads, the issue tracker, and the published documentation. Pull requests are welcome for the documentation in `docs/`.
 
-Before opening an issue, a quick look through [existing issues](https://github.com/miroqaan/tiller-app/issues?q=is%3Aissue) saves everyone a round trip. Something that looks like a security problem goes through [SECURITY.md](SECURITY.md) instead, not a public issue.
+Before opening an issue, a quick look through [existing issues](https://github.com/miroqaan/tiller/issues?q=is%3Aissue) saves everyone a round trip. Something that looks like a security problem goes through [SECURITY.md](SECURITY.md) instead, not a public issue.
 
 ## Notes
 
