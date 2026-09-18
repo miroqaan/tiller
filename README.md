@@ -11,9 +11,9 @@
 
 ---
 
-Messages you send mid-turn land in a **visible queue** you can edit, reorder and merge before they go out. **Tab** interrupts the current turn and sends immediately.
+Messages you send mid-turn land in a **visible queue** you can edit, reorder and merge before they go out. **Tab** sends one straight into the turn that is running, which keeps the work it has already done.
 
-![Two follow-ups queued while a story streams, one edited and merged into the other, then Tab interrupts the turn and the queued message goes out after the new reply](docs/queue-steer.gif)
+![Two follow-ups queued while a story streams, one edited and merged into the other, then Tab sends one at once and the queued message goes out after the reply](docs/queue-steer.gif)
 
 ## Why
 
@@ -32,7 +32,7 @@ tiller is a frontend that fills that gap. It does not replace the agent; it driv
 | Key | Idle | Agent working |
 |---|---|---|
 | Enter | Send | **Add to queue** |
-| Tab | Send | **Interrupt and send now (steer)** |
+| Tab | Send | **Send into the running turn (steer)** |
 | Shift+Enter | Newline | Newline |
 | Esc (empty input) | — | Interrupt the current turn |
 | Ctrl+F | Search conversations | Search conversations |
