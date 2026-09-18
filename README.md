@@ -50,7 +50,7 @@ Close the app and the queue is still there when you come back.
 
 **Two engines, one window.** A thread runs on Claude Code or on OpenAI Codex, picked when you start it. Both get the same queue, steering, approvals, model and effort pickers, plan usage and notifications. A thread can be **carried to the other engine mid-conversation** and continue there.
 
-**Threads that stay organised.** Make a project, name it, and put threads in it: a project is your own group, not a folder, so one folder's threads can go to different projects and one project can hold threads from several folders. Threads you have not filed stay grouped by the folder they run in. Or let a small model read the thread *titles* (never the conversations) and propose named groups. Pin, rename, fork from any message, move to a project.
+**Threads that stay organised.** Make a project, name it, and put threads in it: a project is your own group, not a folder, so one folder's threads can go to different projects and one project can hold threads from several folders. Threads you have not filed stay grouped by the folder they run in. Or switch to priority and drop the grouping: every thread in the order it needs you, stopped on a question first, then running, errors, unread replies, and the quiet ones last. Or let a small model read the thread *titles* (never the conversations) and propose named groups. Pin, rename, fork from any message, move to a project.
 
 **Permissions you can see.** Approval requests arrive as an inline card — allow once, always allow, deny — with a per-thread permission mode (default, accept edits, plan, bypass).
 
