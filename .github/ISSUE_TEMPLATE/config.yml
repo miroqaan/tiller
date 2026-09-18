@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/miroqaan/tiller-app/blob/main/SECURITY.md
+    about: Do not open a public issue. Report it privately instead.
+  - name: A problem with Claude Code itself
+    url: https://github.com/anthropics/claude-code/issues
+    about: The engine is Anthropic's. Bugs in the agent, its tools or its account handling belong there.
+  - name: Read the docs first
+    url: https://github.com/miroqaan/tiller-app#readme
+    about: What tiller does, which keys do what, and what is built so far.

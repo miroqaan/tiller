@@ -1,0 +1,90 @@
+name: Bug report
+description: Something in tiller behaved wrong
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. The three questions that decide how fast this gets fixed are **what you did**, **which engine the thread was on**, and **which version you are running** — the rest is optional.
+
+        If this looks like a security problem, close this and follow [SECURITY.md](https://github.com/miroqaan/tiller-app/blob/main/SECURITY.md) instead.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+      placeholder: |
+        I pressed Tab to steer while a turn was running. The queued message went
+        out, but the interrupted answer was not marked as interrupted.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered, starting from a fresh window if you can.
+      placeholder: |
+        1. Start a Claude thread in any folder
+        2. Send a message that takes a while
+        3. Type a second message and press Tab before the first turn ends
+        4. ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Which engine was the thread on?
+      options:
+        - Claude Code
+        - Codex
+        - Both, or a thread that had been switched between them
+        - Not sure / not engine-specific
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: tiller version
+      description: From the sidebar footer, or the installer file name.
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+
+  - type: dropdown
+    id: permission-mode
+    attributes:
+      label: Permission mode of the thread
+      options:
+        - Default (ask)
+        - Accept edits
+        - Plan
+        - Bypass permissions / full access
+        - Not sure
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: |
+        A screenshot or a short screen recording of the queue is worth a lot here. Error text can be pasted as-is.
+
+        **Check it first.** A conversation, a file path or a terminal output can carry an API key, a token or someone's private code. Paste only what the problem needs.
+    validations:
+      required: false

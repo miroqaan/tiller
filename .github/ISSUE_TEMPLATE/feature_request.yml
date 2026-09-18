@@ -1,0 +1,46 @@
+name: Feature request
+description: Something tiller should do, or do differently
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The best requests start with the moment the tool got in your way. "I had to retype a follow-up because the turn ended first" points somewhere; "add a text box" does not.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What were you trying to do?
+      description: The situation, not the solution. What were you doing when this came up?
+      placeholder: |
+        I queue three or four follow-ups while a long refactor runs, and I often
+        want to hold one back until I have seen the result of the one before it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like instead?
+      description: If you have a shape in mind, describe it. It is fine to leave this to me.
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How do you handle it today?
+      description: What you do now, in tiller or outside it. This says a lot about how much the gap costs.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Does this concern a particular engine?
+      options:
+        - Both / neither, it is about tiller itself
+        - Claude Code
+        - Codex
+    validations:
+      required: false

@@ -1,0 +1,19 @@
+name: Question
+description: How something works, or whether something is possible
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What you are trying to do, and where you got stuck.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: tiller version
+      placeholder: "0.1.0"
+    validations:
+      required: false

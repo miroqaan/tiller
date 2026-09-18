@@ -1,0 +1,38 @@
+Copyright (c) 2026 miroqaan. All rights reserved.
+
+tiller is proprietary software. Its source code is not contained in this
+repository. This repository holds the released application binaries, the
+documentation and the issue tracker.
+
+THE APPLICATION
+
+No license or other right in the application is granted to any person obtaining
+a copy of it, by implication or otherwise, except as set out in the terms that
+accompany a release or in a separate written agreement with the copyright
+holder. A published installer may be downloaded and used as the accompanying
+terms allow. Without the prior written permission of the copyright holder you
+may not copy, modify, merge, republish, distribute, sublicense or sell the
+application or any part of it, create derivative works from it, or reverse
+engineer it except to the extent that applicable law expressly permits.
+
+Third-party components included in or distributed with the application remain
+under their own licenses, which are reproduced in the notices shipped with the
+application. The Claude Code binary distributed with a release is Anthropic's
+and is redistributed unmodified under Anthropic's terms; the bundled Codex
+engine and its helper executables are Apache-2.0, with the statement of
+modifications shipped alongside them.
+
+THE DOCUMENTATION
+
+The Markdown files and images in this repository may be quoted, translated and
+reproduced with attribution.
+
+NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
