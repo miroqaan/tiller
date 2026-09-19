@@ -56,7 +56,7 @@ Close the app and the queue is still there when you come back.
 
 **Local videos.** Local video links such as `[title](clip.mp4)` or `![title](clip.mp4)` play inside the conversation and reader pane, with playback, seeking, volume and fullscreen controls. Absolute and relative paths work; wrap paths with spaces in `<...>`. MP4/M4V, WebM, MOV and OGV are recognized; codec support depends on the platform. Videos stream from disk without autoplay.
 
-**Remove project groups without losing conversations.** The trash button beside a project name deletes the group after confirmation; its conversations return to the folder list and files are left untouched.
+**Remove project groups without losing conversations.** Use the trash button beside a project name, its … menu, or its right-click menu to delete the group after confirmation; its conversations return to the folder list and files are left untouched.
 
 **Separate drafts for each conversation.** Switching threads restores that thread’s unsent text and image attachments during the current app session.
 
