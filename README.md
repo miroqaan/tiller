@@ -50,7 +50,7 @@ Close the app and the queue is still there when you come back.
 
 **Two engines, one window.** New conversations remember your last engine choice. With no saved choice, Codex is the default and appears first in the engine picker. Both get the same queue, steering, approvals, model and effort pickers, plan usage and notifications. A thread can be **carried to the other engine mid-conversation** and continue there.
 
-**Threads that stay organised.** Make a project, name it, and put threads in it: a project is your own group, not a folder, so one folder's threads can go to different projects and one project can hold threads from several folders. Threads you have not filed stay grouped by the folder they run in. Or switch to priority and drop the grouping: every thread in the order it needs you, stopped on a question first, then running, errors, unread replies, and the quiet ones last. Or let a small model read the thread *titles* (never the conversations) and propose named groups. Pin, rename, fork from any message, move to a project.
+**Threads that stay organised.** Projects keep your own conversation groups, with unfiled threads grouped by workspace. Priority uses AI to judge importance, urgency, dependencies, and your stated priorities from titles and recent conversation excerpts. Date groups by latest activity date, with AI priority inside each date. AI tidy-up groups by topic using only titles and folder names. Reassess priority manually or let it refresh after conversations change, and start new threads directly from Priority or Date. Drag the sidebar edge to resize it; its width is remembered.
 
 **Permissions you can see.** Approval requests arrive as an inline card — allow once, always allow, deny — with a per-thread permission mode (default, accept edits, plan, bypass).
 
@@ -63,6 +63,10 @@ Close the app and the queue is still there when you come back.
 **Images and diagrams.** Paste or drop images into the composer; they travel with a queued or steered message. Answers render `mermaid` diagrams, `svg` blocks and local image files, and in Codex threads you can ask for a picture and get one.
 
 **Search that reaches closed threads.** Ctrl+F finds threads by title and by what was said in them, including Codex threads that are not open.
+
+**Find within a document.** Hover, focus, or select text in the reader and press Ctrl+F. Selected text fills the query; matches are highlighted, Enter / Shift+Enter moves between them, and Esc closes search. Outside the reader, Ctrl+F still searches conversations.
+
+**Recover from empty tool errors.** Engine handoff supplies text for empty Claude tool failures. Existing malformed results are backed up and repaired before a thread resumes. Codex also repairs missing history indexes after account changes while preserving fork ancestry.
 
 **Your conversations, kept by tiller.** Every thread is copied into a local vault on your own disk, so a thread opens instantly and survives the engines tidying up their own files. A Claude transcript that Claude Code deleted is put back before the thread is resumed. See [docs/vault.md](docs/vault.md).
 
