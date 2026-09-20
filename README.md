@@ -66,7 +66,9 @@ Close the app and the queue is still there when you come back.
 
 **Your conversations, kept by tiller.** Every thread is copied into a local vault on your own disk, so a thread opens instantly and survives the engines tidying up their own files. A Claude transcript that Claude Code deleted is put back before the thread is resumed. See [docs/vault.md](docs/vault.md).
 
-**Everything is local.** Authentication is your own API key or the Claude Code login already on your machine. tiller has no login screen, stores no tokens of ours, and sends your conversations to nobody but the engine you chose.
+**Two accounts per engine.** The development build's sidebar **Accounts** menu offers two Codex accounts and two Claude accounts. Complete the official provider login and select an account between tasks; existing Tiller conversations stay available. The menu shows login status and the account email reported by the engine.
+
+**Everything is local.** Authentication uses your own accounts or API keys. Official engine processes handle browser login and credential storage in separate local profiles; authentication caches are excluded from Tiller's conversation vault. Tiller sends your conversations to the engine you chose.
 
 **English and Korean UI**, following the system language.
 
