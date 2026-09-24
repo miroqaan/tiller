@@ -48,19 +48,23 @@ Close the app and the queue is still there when you come back.
 
 ## What else is in it
 
-**Two engines, one window.** New conversations remember your last engine choice. With no saved choice, Codex is the default and appears first in the engine picker. Both get the same queue, steering, approvals, model and effort pickers, plan usage and notifications. A thread can be **carried to the other engine mid-conversation** and continue there.
+**Two engines, one window.** New conversations start on Claude until you pick another engine; after that they start on the engine you picked last, including by switching a thread's engine. The model, effort and permission mode you picked last carry over to new threads too (model and effort per engine). Both engines get the same queue, steering, approvals, model and effort pickers, plan usage and notifications. A thread can be **carried to the other engine mid-conversation** and continue there.
 
-**Threads that stay organised.** Projects keep your own conversation groups, with unfiled threads grouped by workspace. Priority uses AI to judge importance, urgency, dependencies, and your stated priorities from titles and recent conversation excerpts. Date groups by latest activity date, with AI priority inside each date. AI tidy-up groups by topic using only titles and folder names. Reassess priority manually or let it refresh after conversations change, and start new threads directly from Priority or Date. Drag the sidebar edge to resize it; its width is remembered.
+**Threads that stay organised.** Projects keep your own conversation groups and can be reordered by dragging their headers; conversations outside a project are listed as unfiled. The flag in the sidebar header switches to Priority, where AI judges importance, urgency, dependencies, and your stated priorities from titles and recent conversation excerpts. It shows the last seven days: one combined priority group, then Today and each weekday in the same order. AI tidy-up groups by topic using only titles and folder names. Priority refreshes after you send a message while it is on screen, retries on its own after a failed assessment, and can be reassessed by hand; new threads can be started straight from it. Drag the sidebar edge to resize it; its width is remembered.
+
+**Conversations that read cleanly.** A toggle in the sidebar footer shows or hides tool steps (commands, file reads, edits) and thought summaries; answers stay visible. While a turn runs with work hidden, a single "working…" line stands in until the answer streams. Under each finished turn you see how long it worked and when it finished. Hover over a message you sent to run it again (queued if a turn is running). Background task notices from the engine show as one-line notices, not as messages you typed.
+
+**Open the folders behind a thread.** Right-click a conversation to open its history folder or its working folder in the system file manager.
 
 **Permissions you can see.** Approval requests arrive as an inline card — allow once, always allow, deny — with a per-thread permission mode (default, accept edits, plan, bypass).
 
 **Local videos.** Local video links such as `[title](clip.mp4)` or `![title](clip.mp4)` play inside the conversation and reader pane, with playback, seeking, volume and fullscreen controls. Absolute and relative paths work; wrap paths with spaces in `<...>`. MP4/M4V, WebM, MOV and OGV are recognized; codec support depends on the platform. Videos stream from disk without autoplay.
 
-**Remove project groups without losing conversations.** Use a project’s … menu or right-click menu to delete the group after confirmation; its conversations return to the folder list and files are left untouched.
+**Remove project groups without losing conversations.** Use a project’s … menu or right-click menu to delete the group after confirmation; its conversations return to the unfiled list and files are left untouched. Deleting a thread removes it from its engine as well, Codex threads included, and it stays deleted.
 
 **Separate drafts for each conversation.** Switching threads restores that thread’s unsent text and image attachments during the current app session.
 
-**Images and diagrams.** Paste or drop images into the composer; they travel with a queued or steered message. Answers render `mermaid` diagrams, `svg` blocks and local image files, and in Codex threads you can ask for a picture and get one.
+**Images and diagrams.** Paste or drop images into the composer; they travel with a queued or steered message. Answers render `mermaid` diagrams, `svg` blocks and local image files, and in Codex threads you can ask for a picture and get one. Images and videos in one message share an enlarged viewer: arrow keys move between them, Esc closes it.
 
 **Search that reaches closed threads.** Ctrl+F finds threads by title and by what was said in them, including Codex threads that are not open.
 
@@ -68,9 +72,9 @@ Close the app and the queue is still there when you come back.
 
 **Recover from empty tool errors.** Engine handoff supplies text for empty Claude tool failures. Existing malformed results are backed up and repaired before a thread resumes. Codex also repairs missing history indexes after account changes while preserving fork ancestry.
 
-**Your conversations, kept by tiller.** Every thread is copied into a local vault on your own disk, so a thread opens instantly and survives the engines tidying up their own files. A Claude transcript that Claude Code deleted is put back before the thread is resumed. See [docs/vault.md](docs/vault.md).
+**Your conversations, kept by tiller.** Every thread is copied into a local vault on your own disk, so a thread opens instantly and survives the engines tidying up their own files. A Claude transcript that Claude Code deleted is put back before the thread is resumed, and if Claude Code no longer knows the session, the conversation tiller holds is written out as a fresh transcript and the thread carries on. See [docs/vault.md](docs/vault.md).
 
-**Multiple accounts per engine.** The development build's sidebar **Accounts** menu lets you add Codex and Claude accounts with **Add account**, without a fixed account-count limit. Existing accounts are preserved and added profiles persist across restarts. Complete the official provider login and select an account between tasks; existing Tiller conversations stay available. The menu shows login status, account email, and per-account plan usage reported by the official engine, including usage percentages and reset times. Usage checks do not send model prompts, and a failed check is displayed separately from login status.
+**Multiple accounts per engine.** The sidebar **Accounts** menu lets you add Codex and Claude accounts with **Add account**, without a fixed account-count limit. Existing accounts are preserved and added profiles persist across restarts. Complete the official provider login and select an account between tasks; existing Tiller conversations stay available. The menu shows login status, account email, and per-account plan usage reported by the official engine, including usage percentages and reset times. Usage checks do not send model prompts, and a failed check is displayed separately from login status.
 
 **Everything is local.** Authentication uses your own accounts or API keys. Official engine processes handle browser login and credential storage in separate local profiles; authentication caches are excluded from Tiller's conversation vault. Tiller sends your conversations to the engine you chose.
 
