@@ -66,7 +66,7 @@ Close the app and the queue is still there when you come back.
 
 **Separate drafts for each conversation.** Switching threads restores that thread’s unsent text and image attachments during the current app session.
 
-**Images and diagrams.** Paste or drop images into the composer; they travel with a queued or steered message. Answers render `mermaid` diagrams, `svg` blocks and local image files, and in Codex threads you can ask for a picture and get one. Images and videos in one message share an enlarged viewer: arrow keys move between them, Esc closes it.
+**Images and diagrams.** Paste or drop images into the composer; they travel with a queued or steered message. Answers render `mermaid` diagrams, `svg` blocks and local image files, and in Codex threads you can ask for a picture and get one. Images and videos in one message share an enlarged viewer: arrow keys move between them, Esc closes it. Right-click any picture to copy it, or its file path.
 
 **Search that reaches closed threads.** Ctrl+F finds threads by title and by what was said in them, including Codex threads that are not open.
 
