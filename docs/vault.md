@@ -2,6 +2,23 @@
 
 tiller keeps its own conversation history in ordinary folders you control. You can read and back up those files without a sync account. This page describes the current development preview; no public installer has been released. See [sync preview](sync.md) for optional encrypted uploads and their current limits.
 
+## Manage local vaults
+
+Click the **current vault name in the sidebar** to open the vault manager. Each vault keeps its own conversations, projects and working-folder mappings. Creating and managing local vaults requires no account or sync connection.
+
+| Action | What happens |
+|---|---|
+| **Create vault** | Choose an existing parent folder and enter a name. Tiller creates a new folder with that name; it never replaces an existing folder. |
+| **Open folder as vault** | Add an existing vault folder, or start a vault in an empty folder. Adding it to the list does not switch your current vault. |
+| **Name on this device → Save** | Change the displayed name on this device. The folder and vault identity stay the same. |
+| **Open this vault** | Save open conversations and restart Tiller in the selected vault after confirmation. Finish running work before switching. |
+| **Show in file manager** | Open the vault folder in your system file manager. |
+| **Remove from list** | Remove this device's registration while keeping all files and conversation state. Open the same folder again to register the same vault identity. |
+
+The default vault and the currently open vault cannot be removed from the list. A vault connected to sync must be opened and disconnected before its registration can be removed. Working-folder mappings are retained for reopening a removed vault, but a mapping is not restored if another registered vault has since claimed that folder.
+
+Select **Sync settings** for the current vault to configure optional synchronization. Sync remains a development preview; the cloud service is not deployed yet.
+
 ## Where your files live
 
 The normal vault is the operating system's Documents folder plus `Tiller`. Documents may itself be redirected, for example by OneDrive. Each app project has a folder, and each conversation has a session folder:
@@ -22,7 +39,7 @@ Documents/Tiller/
 
 Only files applicable to that conversation are present. `미분류` is the current on-disk name for the unfiled folder. Projects created in tiller have identity markers, so their folders can be renamed without changing identity. Arbitrary folders placed beside them are not automatically made into projects.
 
-Open **Vaults and sync** in the sidebar to add a local vault or switch between registered vaults. Switching restarts the app after active work finishes. Additional vaults can live in folders you choose, with separate conversation state and working-folder mappings.
+Additional vaults can live in folders you choose. Registered vault folders must be separate: one vault cannot be inside another.
 
 Device settings are separate from the vault:
 
