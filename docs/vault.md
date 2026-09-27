@@ -1,78 +1,71 @@
-# The vault: where your conversations are kept
+# Your personal vault
 
-tiller keeps its own copy of every conversation, on your own disk. This page
-says where it is, what is in it, and what is deliberately never in it.
+tiller keeps its own conversation history in ordinary folders you control. You can read and back up those files without a sync account. This page describes the current development preview; no public installer has been released. See [sync preview](sync.md) for optional encrypted uploads and their current limits.
 
-## Why there is a copy at all
+## Where your files live
 
-The engines own their history, and they tidy it up. Claude Code deletes old
-transcripts. A Codex thread that is not open is not something tiller can read
-from the engine at all. Without a copy of its own, tiller would be a window
-onto two other programs' file formats, locations and clean-up rules — and a
-conversation could simply vanish.
+The normal vault is the operating system's Documents folder plus `Tiller`. Documents may itself be redirected, for example by OneDrive. Each app project has a folder, and each conversation has a session folder:
 
-So every thread is mirrored as it goes. A thread opens from that copy
-instantly, and the engine's version is compared in the background and used
-instead when it is at least as complete. If the engine has lost the thread, the
-copy is what you see; and a Claude transcript that Claude Code cleaned up is
-written back into place before the thread is resumed, so the conversation can
-continue.
-
-## Where it is
-
-```
-<userData>/vault/threads/<thread id>/
+```text
+Documents/Tiller/
+  .tiller/                       vault metadata and local backups
+  <project>/
+    .tiller/project.json         stable project identity
+    sessions/<conversation-id>/
+      meta.json
+      conversation.json
+      transcript.jsonl
+      rollout.jsonl
+      attachments/
+  미분류/sessions/                unfiled conversations
 ```
 
-`<userData>` is `%APPDATA%/tiller` on Windows, `~/Library/Application Support/tiller`
-on macOS and `~/.config/tiller` on Linux. Two environment variables move things:
+Only files applicable to that conversation are present. `미분류` is the current on-disk name for the unfiled folder. Projects created in tiller have identity markers, so their folders can be renamed without changing identity. Arbitrary folders placed beside them are not automatically made into projects.
 
-| Variable | Moves |
+Open **Vaults and sync** in the sidebar to add a local vault or switch between registered vaults. Switching restarts the app after active work finishes. Additional vaults can live in folders you choose, with separate conversation state and working-folder mappings.
+
+Device settings are separate from the vault:
+
+| Platform | Normal device-state directory |
 |---|---|
-| `TILLER_VAULT_DIR` | the vault alone |
-| `TILLER_USER_DATA` | everything tiller stores, the vault included |
+| Windows | `~/.tiller` (`%USERPROFILE%/.tiller`) |
+| macOS | `~/Library/Application Support/tiller` |
+| Linux | `~/.config/tiller` |
 
-The development instance stores its state separately (`tiller-dev`), so a
-stable build and a development build never write to the same vault.
+Windows development instances use `~/.tiller-dev`. Development and explicitly isolated test instances normally keep their default `Tiller` folder under their separate state directory. macOS and Linux paths describe the implementation, not completed platform acceptance.
 
-## What is in a thread folder
-
-| File | What it is |
+| Override | Purpose |
 |---|---|
-| `conversation.json` | the conversation as tiller shows it, in tiller's own shape — the same shape for both engines, and one file even for a thread that has been switched between them |
-| `transcript.jsonl` | a byte-for-byte copy of the Claude Code transcript |
-| `rollout.jsonl` | a byte-for-byte copy of the Codex rollout file |
+| `TILLER_WORKSPACE_DIR` | Changes the default project-folder vault location |
+| `TILLER_USER_DATA` | Changes device-state storage; also isolates the default vault under that directory unless a workspace override is provided |
+| `TILLER_VAULT_DIR` | Legacy vault location to import; does not select the current project-folder vault |
 
-`conversation.json` is the only one tiller interprets. The engine files are
-copied whole and treated as opaque, because their job is to be handed back to
-the engine that wrote them, unchanged, when a thread is resumed.
+The old `<userData>/vault/threads/` layout is imported while preserving its originals. Keep independent backups before moving or replacing a vault directory.
 
-Two other folders sit next to the vault: `attachments/<thread>/` holds the
-images you sent with a message, and `carried/<thread>.json` holds the part of a
-switched thread that the receiving engine does not list among its own turns.
-Deleting a thread removes its attachments with it.
+## What the vault contains
 
-## What is never in it
+| Item | Purpose |
+|---|---|
+| `conversation.json` | History as tiller displays it, including threads that changed engines |
+| `meta.json` | Conversation identity, title, engine and project information |
+| `transcript.jsonl` | Claude's native history snapshot |
+| `rollout.jsonl` | Local Codex history snapshot; not uploaded by the sync preview |
+| `attachments/` | Images attached to that conversation |
 
-Credentials. Not by filtering them out — by an allowlist of the paths that may
-be read and written, fixed in code and held in place by tests. Files such as
-`~/.claude/.credentials.json`, `~/.claude.json`, `~/.claude/settings*.json` and
-`~/.codex/auth.json` are outside it, and no input makes a credential file name
-pass.
+Engine snapshots are retained as opaque history copies. Before resuming Claude, tiller validates and materializes a needed native transcript. A different existing native transcript is preserved and the incoming history gets a fresh engine identity. Codex history from another device remains readable and searchable, without treating a copied file as a resumable Codex thread.
 
-What tiller reads from Claude Code is a single assembled path —
-`~/.claude/projects/<folder>/<session id>.jsonl`, built from a session id and a
-working folder tiller already knows. It does not walk `~/.claude` and does not
-glob for files.
+A vault owns conversation records, not every file in its working folders. Source repositories, generated documents and other external project files need their own backup or transfer. A link in a conversation does not automatically include the referenced file.
 
-One thing an allowlist cannot cover: a secret **you** paste into a
-conversation is part of the conversation, and it is copied with it. That is
-worth remembering before pasting a key into a chat, here or anywhere else.
+## Working folders and terminal conversations
 
-## Where it goes next
+A working root identifies a project independently of its absolute path. On another device, **Working folders on this device → Link…** maps it to that device's folder. Path mappings stay local. Until mapped, received conversations are read only.
 
-Today the vault is local: nothing leaves your machine. The planned sync between
-your own machines is end-to-end encrypted, with the server holding content it
-cannot read, and it will be an optional paid subscription — the app and every
-feature on this page stay free and work with no account. That format and its
-encryption will be documented here before it ships.
+Claude CLI conversations in linked working folders are discovered while tiller runs, including terminal sessions created outside the app. **Find CLI conversations** requests a scan. Linking a folder can include more conversations than the ones you started in tiller; the panel asks for confirmation. There is no standalone background sync daemon in this preview.
+
+## Credentials and local-only state
+
+Engine credentials, API keys, sync account tokens and plaintext vault keys are excluded from portable conversation data. Device paths, queued messages, automatic execution state and permission settings are not restored from a remote vault. A received conversation does not inherit permission to run commands on the receiving device.
+
+This boundary does not redact conversation content: a password or key pasted into a message, or included in a tool result or attachment, remains part of that history. Local vault files are ordinary plaintext files; end-to-end encryption protects the optional remote copy.
+
+The local vault works without synchronization. [Sync preview](sync.md) explains connection, disconnection, deletion, transfer and recovery separately.

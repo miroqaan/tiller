@@ -74,17 +74,19 @@ Close the app and the queue is still there when you come back.
 
 **Recover from empty tool errors.** Engine handoff supplies text for empty Claude tool failures. Existing malformed results are backed up and repaired before a thread resumes. Codex also repairs missing history indexes after account changes while preserving fork ancestry.
 
-**Your conversations, kept by tiller.** Every thread is copied into a local vault on your own disk, so a thread opens instantly and survives the engines tidying up their own files. A Claude transcript that Claude Code deleted is put back before the thread is resumed, and if Claude Code no longer knows the session, the conversation tiller holds is written out as a fresh transcript and the thread carries on. See [docs/vault.md](docs/vault.md).
+**Your conversations, kept by tiller.** Conversations, engine history copies and attachments live in ordinary project folders under your local vault, normally `Documents/Tiller`. The development preview adds a **Vaults and sync** panel for multiple personal vaults, working-folder mappings, Claude CLI discovery and optional encrypted synchronization. Claude conversations can be prepared for terminal resume; Codex history received from another device is read only. See [the vault layout](docs/vault.md) and [sync preview](docs/sync.md).
 
 **Multiple accounts per engine.** The sidebar **Accounts** menu lets you add Codex and Claude accounts with **Add account**, without a fixed account-count limit. Existing accounts are preserved and added profiles persist across restarts. Complete the official provider login and select an account between tasks; existing Tiller conversations stay available. The menu shows login status, account email, and per-account plan usage reported by the official engine, including usage percentages and reset times. Usage checks do not send model prompts, and a failed check is displayed separately from login status.
 
-**Everything is local.** Authentication uses your own accounts or API keys. Official engine processes handle browser login and credential storage in separate local profiles; authentication caches are excluded from Tiller's conversation vault. Tiller sends your conversations to the engine you chose.
+**Local storage by default.** No sync account is needed to keep, read or search local conversations. Official engine processes handle provider login and credential storage in separate local profiles, and Tiller sends your conversations to the engine you choose. Connecting a vault explicitly enables uploads of an end-to-end encrypted copy; engine credentials, sync tokens, queued actions and permission settings are excluded. The cloud service is not deployed yet.
 
 **English and Korean UI**, following the system language.
 
 ## Status
 
 tiller is in development and **no installer has been published yet**. This repository is where releases will appear — [watch it](https://github.com/miroqaan/tiller/subscription) to hear about the first one.
+
+The vault and sync features documented here are an implemented development preview, **not a public download release**. Cloud deployment, live sign-in/billing acceptance and real cross-OS or physical-device sync acceptance remain unfinished. The encrypted-folder option is for local testing on one filesystem; Dropbox-style file replication is unsupported.
 
 | Platform | State |
 |---|---|
