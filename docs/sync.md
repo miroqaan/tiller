@@ -22,17 +22,27 @@ Incoming updates keep the affected conversation closed until its complete snapsh
 
 ## What is encrypted and uploaded
 
-Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, supported conversation image attachments, and the vault’s common agent instructions (`.tiller/instructions.md`). Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. External working-folder files are not uploaded merely because a root is linked. Existing engine global/project instruction files remain outside vault sync even when edited from Tiller.
+Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, supported conversation image attachments and generated image originals, and the vault’s common agent instructions (`.tiller/instructions.md`). Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. Working-folder files require selection in **Work file sync**; linking a root or editing a project instruction file does not select it automatically.
+
+Generated originals use the existing local image formats and limit: PNG, JPEG, GIF or WebP, up to 20 MiB per image.
 
 For [vault instructions](vault.md#agent-instructions), update every connected device to a version that supports the instructions editor. Older preview builds reject the new sync path. Concurrent instruction edits retain the local version as a recovery copy before applying the received version. Review it in **Agent instructions**, load it into the editor and save explicitly; the backup remains. Clearing the editor and saving syncs an empty instruction file.
 
 The client encrypts content and the file manifest before upload using AES-256-GCM. A random vault key is wrapped separately by a password-derived key and a recovery key. Password derivation uses scrypt. The server holds encrypted objects and encrypted key wrappers, not the plaintext vault key or password. It still sees operational metadata such as account/vault/device identifiers, object sizes, versions and request timing. This preview has not had an independent security audit.
 
-Engine credentials, API keys, sync account tokens, local path mappings, queues, automatic execution state and permission grants are excluded. Secrets already inside conversation text or attachments remain inside that encrypted history. Your ordinary local vault remains readable plaintext on your device.
+Engine-managed credentials, app-managed API keys, sync account tokens, local path mappings, queues, automatic execution state and permission grants are excluded. Project key files such as `.env` can be selected like any other working file. Secrets already inside conversation text or attachments remain inside that encrypted history. Local vault and working files remain readable plaintext on your device.
+
+## Choose working files
+
+Open the current vault's **Work file sync** to browse linked working folders or add another folder. Select individual files or a whole folder. A folder selection includes future files and project key files; more specific child selections take precedence. Use **Exclude** for individual exceptions, or **Use folder setting** to remove an override. Cache, temporary, dependency-cache and Tiller-managed history/state files are excluded. Selection changes sync across devices; absolute folder mappings stay local.
+
+On another device, link the received root to its local working folder. Selected ordinary files download there automatically. Video and audio originals download on request; choose **Download** or **Keep offline** in the file list. A video card shows whether its original is local or included, offers **Include in sync**, and can download the original before playback. File transfers use bounded chunks in the background, with a 1 GiB limit per working file. Oversized files are shown as excluded rather than blocking other sync.
+
+Excluding a file removes its cloud reference and stops syncing it while preserving existing local originals on every device. Concurrent edits to different selection rules are combined; simultaneous include/exclude changes to the same rule keep the exclusion. Conflicting local file edits are preserved in the recovery folder before a received version is applied. Removing a local file alone does not delete its cloud copy; sync can download it again. A missing local mapping never authorizes writing into the previous device's path. Linking a different folder preserves conflicting originals there before applying cloud files. Update all connected devices before using this feature; older builds reject its new sync paths.
 
 ## Working across devices
 
-On a receiving device, register an empty local vault, connect the remote vault and map its working roots to local folders. A missing root mapping keeps the conversation read only. Root mappings do not copy your source repository or working files.
+On a receiving device, register an empty local vault, connect the remote vault and map its working roots to local folders. A missing root mapping keeps the conversation read only. Only files selected in **Work file sync** are transferred into those folders.
 
 Claude CLI conversations in linked roots are included while tiller runs. The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. Run that command yourself with the official CLI and your own engine login. Open app conversations and recently modified terminal transcripts defer incoming changes to protect active work. This does not provide a headless sync agent when tiller is closed.
 
@@ -45,7 +55,7 @@ Claude CLI conversations in linked roots are included while tiller runs. The con
 | Disconnect | Stops this vault's connection and preserves both local files and the remote copy |
 | Revoke a device | Invalidates that registration; files already saved on that device remain, and it must enroll again to reconnect |
 | Delete a synced conversation | Sends deletion to the connected vault and its other devices; offline devices catch up later |
-| Move a working root to another vault | Creates new conversation identities in the destination and deletes the source identities, including on the source vault's other devices; external project files stay in place |
+| Move a working root to another vault | Moves its file selection policy, creates new conversation identities in the destination and deletes the source identities, including on the source vault's other devices; source-vault file sharing stops and external project files stay in place |
 | Restore a recovery copy | Creates new read-only history without native engine resume IDs; the deleted original stays deleted and the backup remains |
 | Discard a recovery copy | Permanently removes that selected local recovery backup |
 

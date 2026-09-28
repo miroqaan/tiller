@@ -27,7 +27,7 @@ Open the current vault’s **Agent instructions** from the vault manager. **Comm
 
 **Additional instructions** automatically finds existing global and project files for the selected engine account and working folder, including Codex `AGENTS.md` / `AGENTS.override.md` and Claude `CLAUDE.md` / `CLAUDE.local.md`. Expand a source to see its original path and contents, then edit and save that original file. Global edits affect other vaults using that engine account. Here, “project” means the actual working folder’s instruction scope, rather than a conversation group name.
 
-Tiller does not create a separate global/project settings hierarchy or copy those existing files into the vault. They are not uploaded by vault sync. Native engines still decide which instructions to load, including precedence, size limits, settings, imports and rules; the panel identifies shadowed or conditional sources where possible.
+Tiller does not create a separate global/project settings hierarchy or copy those existing files into the vault. Editing a source does not automatically upload it; project instruction files can be selected separately in **Work file sync**. Native engines still decide which instructions to load, including precedence, size limits, settings, imports and rules; the panel identifies shadowed or conditional sources where possible.
 
 Saved vault instructions take effect in new conversations, new side chats, or after closing and reopening a conversation. Running work keeps its current instructions. An unsaved editor draft stays available when you close the panel, collapse the sidebar or switch the interface language during this app session.
 
@@ -85,11 +85,12 @@ The old `<userData>/vault/threads/` layout is imported while preserving its orig
 | `meta.json` | Conversation identity, title, engine and project information |
 | `transcript.jsonl` | Claude's native history snapshot |
 | `rollout.jsonl` | Local Codex history snapshot; not uploaded by the sync preview |
-| `attachments/` | Images attached to that conversation |
+| `attachments/` | Attached images and durable generated image originals |
+| `.tiller/file-sync/` | Portable file and folder selection rules |
 
 Engine snapshots are retained as opaque history copies. Before resuming Claude, tiller validates and materializes a needed native transcript. A different existing native transcript is preserved and the incoming history gets a fresh engine identity. Codex history from another device remains readable and searchable, without treating a copied file as a resumable Codex thread.
 
-A vault owns conversation records, not every file in its working folders. Source repositories, generated documents and other external project files need their own backup or transfer. A link in a conversation does not automatically include the referenced file.
+A vault owns its conversation records and can sync selected working files. Open **Work file sync** from the current vault's settings to include files or folders, including project key files such as `.env`, and exclude individual children. A link in a conversation does not automatically select its referenced working file. Videos offer an inclusion button in their card; received video/audio originals download on request or when kept offline. See [file selection and limits](sync.md#choose-working-files).
 
 ## Working folders and terminal conversations
 
@@ -99,7 +100,7 @@ Claude CLI conversations in linked working folders are discovered while tiller r
 
 ## Credentials and local-only state
 
-Engine credentials, API keys, sync account tokens and plaintext vault keys are excluded from portable conversation data. Device paths, queued messages, automatic execution state and permission settings are not restored from a remote vault. A received conversation does not inherit permission to run commands on the receiving device.
+Engine-managed credentials, app-managed API keys, sync account tokens and plaintext vault keys are excluded from portable conversation data. User-selected project key files are included in encrypted work-file sync. Device paths, queued messages, automatic execution state and permission settings are not restored from a remote vault. A received conversation does not inherit permission to run commands on the receiving device.
 
 This boundary does not redact conversation content: a password or key pasted into a message, or included in a tool result or attachment, remains part of that history. Local vault files are ordinary plaintext files; end-to-end encryption protects the optional remote copy.
 
