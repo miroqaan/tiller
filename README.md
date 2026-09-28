@@ -80,6 +80,8 @@ Close the app and the queue is still there when you come back.
 
 **Tiller Sync inside the app.** Sign in with GitHub from the sync panel, check your sync access and its expiry, then create an encrypted remote vault or connect an existing one. The test service is selected automatically; there is no server address to enter in the normal flow. GitHub authorization opens in your browser, and setup continues in Tiller. Test access is assigned to selected accounts; signing in does not automatically grant it. Paid subscriptions are not on sale yet.
 
+**Keep working during sync.** Close the sync panel to use other conversations while synchronization continues. A compact status button opens the current stage, file or byte progress, elapsed time and recent sync log. Incoming conversation updates briefly protect the affected conversation while its files are applied; unrelated conversations remain available.
+
 **Local storage by default.** No sync account is needed to keep, read or search local conversations. Official engine processes handle provider login and credential storage in separate local profiles, and Tiller sends your conversations to the engine you choose. Connecting a vault explicitly enables uploads of an end-to-end encrypted copy; engine credentials, sync tokens, queued actions and permission settings are excluded. A staging cloud service is deployed for testing.
 
 **English and Korean UI**, following the system language.

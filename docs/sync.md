@@ -14,6 +14,12 @@ New vault passwords require at least 12 characters. Creation shows a recovery ke
 
 The service implements monthly subscription checks: expiry makes remote content access read only and prevents new uploads. Local conversations remain available. No paid service or checkout has launched, and no public price is announced here.
 
+## Progress and background work
+
+Close the sync panel to continue working in other conversations. Synchronization continues, and a compact status button lets you reopen its details. The panel shows the current stage, completed files or transferred bytes, elapsed time, and a recent **Sync log** with timestamps and errors. Progress percentages describe the current stage; preparation can remain indeterminate until the amount of work is known. The log is kept for the current app session and can be cleared.
+
+Incoming updates keep the affected conversation closed until its complete snapshot has been applied. Other conversations can still be opened or created. Project-folder and root changes may briefly require a wider pause to keep file locations consistent. Settings that would disconnect or replace the active sync connection wait until the current operation finishes.
+
 ## What is encrypted and uploaded
 
 Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, and supported conversation image attachments. Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. External working-folder files are not uploaded merely because a root is linked.
