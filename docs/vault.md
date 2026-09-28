@@ -12,26 +12,29 @@ Click the **current vault name in the sidebar** to open the vault manager. Each 
 | **Import cloud vault** | Choose a remote vault, enter a local name and its encryption password or recovery key. Tiller prepares a separate local vault at an automatic location; open it to start downloading. |
 | **Open folder as vault** | Add an existing vault folder, or start a vault in an empty folder. Adding it to the list does not switch your current vault. |
 | **Name on this device → Save** | Change the displayed name on this device. The folder and vault identity stay the same. |
-| **Open this vault** | Save open conversations and restart Tiller in the selected vault after confirmation. Finish running work before switching. |
+| **Open in new window** | Open the vault in a window of its own, as in Obsidian. A vault that already has a window comes to the front. The current window keeps its conversations, running work and sync. |
 | **Show in file manager** | Open the vault folder in your system file manager. |
 | **Merge into *current vault*** | Move a vault that is not open into the open vault: its conversations, projects, working-folder links and agent instructions. See [Merge two vaults](#merge-two-vaults). |
 | **Remove from list** | Remove this device's registration while keeping all files and conversation state. A connected vault also stops syncing on this device; its cloud copy stays. Open the same folder again to register the same vault identity. |
 
-The default vault and the currently open vault cannot be removed from the list. Working-folder mappings are retained for reopening a removed vault, but a mapping is not restored if another registered vault has since claimed that folder.
+Each open vault has its own window. Closing a window stops only that vault's work and sync; if one of its conversations is still working, Tiller asks first. Closing the last window quits Tiller, and the next start opens the same windows again.
+
+The default vault and vaults with an open window cannot be removed from the list. Working-folder mappings are retained for reopening a removed vault, but a mapping is not restored if another registered vault has since claimed that folder.
 
 Select **Sync settings** for the current vault to open Tiller Sync. Sign in with GitHub, review the account's sync access and expiry, then connect the vault to a cloud vault you already use on another device, or create a new one. The test service is selected automatically. GitHub authorization opens in your browser; the connection steps stay in Tiller. See [One cloud vault for all devices](sync.md#one-cloud-vault-for-all-devices).
 
-Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive a remote vault, choose **Import cloud vault** from the vault manager or sync panel, sign in with GitHub if needed, select the remote vault, and enter its password or recovery key and a name for this device. Then choose **Open imported vault**: the app restarts in that vault and downloads its contents. Your current vault and connection are preserved. A remote vault already connected on this device is reused instead of creating another copy.
+Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive a remote vault, choose **Import cloud vault** from the vault manager or sync panel, sign in with GitHub if needed, select the remote vault, and enter its password or recovery key and a name for this device. Then choose **Open in new window**: the imported vault opens in a window of its own and downloads its contents. Your current vault and connection are preserved. A remote vault already connected on this device is reused instead of creating another copy.
 
 Newly created and imported vaults use the operating system's Documents folder under `Tiller Vaults`. Existing vault paths, including the original `Documents/Tiller` vault, stay unchanged. Renaming changes only the display name. Development and isolated test profiles use a separate managed directory inside their profile. **Open folder as vault** remains available for existing folders at any supported location. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
 
 ## Merge two vaults
 
-Open the vault that should keep everything, then select the other vault in the vault manager and choose **Merge into *current vault***. After confirmation:
+Open the vault that should keep everything, then select the other vault in the vault manager and choose **Merge into *current vault***. If the other vault has a window, close it first. Tiller asks for confirmation because a merge cannot be undone; back up the vault folder first. After confirmation:
 
 - Conversations keep their IDs. A cloud vault that later receives both copies treats them as the same conversations.
 - Projects join by identity, then by folder name, as merging two folders would. Other projects are created in the open vault.
 - Working-folder links on this device move with their conversations. Conversations from another device's folders stay read only until you link a folder here; the result shows suggested folders.
+- AI tidy-up groups of both vaults are combined, so merged conversations keep their groups.
 - The open vault's agent instructions stay in effect. If the merged vault's instructions differ, they wait in **Agent instructions** as a preserved copy. If the open vault had none, the merged instructions are used.
 - A conversation that already exists here with different content keeps the version here; the other copy is saved in `.tiller/backups/vault-merge/`.
 - The merged vault leaves the list, and its sync on this device ends; its cloud copy stays. Its folder remains as a backup and cannot be opened as a vault again, so the same conversations are never continued in two vaults. Delete that folder when you no longer need it.

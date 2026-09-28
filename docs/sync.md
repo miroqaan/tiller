@@ -10,7 +10,7 @@ Open the sync panel from the sidebar or the current vault's **Sync settings**. *
 
 ## One cloud vault for all devices
 
-Connect every device to the same cloud vault. When a device already syncs, the sync panel of another vault lists the account's cloud vaults first under **Sync with a cloud vault you already use**. Choose one, enter its encryption password or recovery key, and select **Merge and connect**. This vault does not need to be empty: its conversations, projects and instructions are merged with the cloud vault's. Nothing is deleted on either side; a conversation present on both sides becomes one. If both sides changed the same conversation differently, both versions are kept as for any other sync conflict. Differing agent instructions keep the cloud vault's version and preserve this device's version for review.
+Connect every device to the same cloud vault. When a device already syncs, the sync panel of another vault lists the account's cloud vaults first under **Sync with a cloud vault you already use**. Choose one, enter its encryption password or recovery key, and select **Merge and connect**. This vault does not need to be empty: its conversations, projects, instructions and AI tidy-up groups are merged with the cloud vault's. If this vault already has conversations or projects, Tiller asks first, because a merge cannot be undone; back up the vault folder before you continue. A conversation present on both sides becomes one. If both sides changed the same conversation differently, both versions are kept as for any other sync conflict. Conversations you deleted on this device are also deleted from the cloud vault. Differing agent instructions keep the cloud vault's version and preserve this device's version for review.
 
 A connected vault offers **Switch to another cloud vault**. The new cloud vault's password is verified before the current connection ends, and this vault is merged into the new cloud vault. The previous cloud vault stays unchanged.
 
@@ -20,7 +20,7 @@ Cloud vault names identify vaults before they are unlocked, so they are visible 
 
 Test access is assigned to selected accounts; signing in alone does not grant access. Use the account refresh control to check for changes. A failed access check is shown as an error rather than as a missing or expired subscription. Custom service addresses and the encrypted-folder test transport are available in advanced settings; a previously configured custom service is preserved.
 
-To keep a cloud vault as a separate local vault instead, choose **Open a cloud vault as a new local vault** (or **Import cloud vault** in the vault manager), select the remote vault, and enter a local name plus its encryption password or recovery key. Its local folder is assigned automatically under `Documents/Tiller Vaults`; you do not need to create an empty vault first. After the connection is prepared, choose **Open imported vault** to restart in it and download. Importing keeps the current vault and its connection intact, including when it already contains conversations. Wrong credentials do not create a local folder.
+To keep a cloud vault as a separate local vault instead, choose **Open a cloud vault as a new local vault** (or **Import cloud vault** in the vault manager), select the remote vault, and enter a local name plus its encryption password or recovery key. Its local folder is assigned automatically under `Documents/Tiller Vaults`; you do not need to create an empty vault first. After the connection is prepared, choose **Open in new window** to download it in a window of its own. Importing keeps the current vault and its connection intact, including when it already contains conversations. Wrong credentials do not create a local folder.
 
 New vault passwords require at least 12 characters. Creation shows a recovery key once; save it separately. The service cannot recover a lost password. A connected cloud vault also offers **Change vault password**, using the current password or recovery key. This replaces the password wrapper while preserving the vault key, recovery key, ciphertext and existing connected devices. It does not revoke devices; use **Connected devices → Revoke** for that.
 
@@ -28,13 +28,13 @@ The service implements monthly subscription checks: expiry makes remote content 
 
 ## Progress and background work
 
-Close the sync panel to continue working in other conversations. Synchronization continues, and a compact status button lets you reopen its details. The panel shows the current stage, completed files or transferred bytes, elapsed time, and a recent **Sync log** with timestamps and errors. Progress percentages describe the current stage; preparation can remain indeterminate until the amount of work is known. The log is kept for the current app session and can be cleared.
+Close the sync panel to continue working in other conversations. Synchronization continues, and a compact status button lets you reopen its details. The panel shows the current stage, completed files or transferred bytes, elapsed time, and a recent **Sync log** with timestamps and errors. The percentage covers the whole run and does not go back as the stages change. The log is kept for the current app session and can be cleared.
 
 Incoming updates keep the affected conversation closed until its complete snapshot has been applied. Other conversations can still be opened or created. Project-folder and root changes may briefly require a wider pause to keep file locations consistent. Settings that would disconnect or replace the active sync connection wait until the current operation finishes.
 
 ## What is encrypted and uploaded
 
-Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, supported conversation image attachments and generated image originals, and the vault’s common agent instructions (`.tiller/instructions.md`). Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. Working-folder files require selection in **Work file sync**; linking a root or editing a project instruction file does not select it automatically.
+Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, supported conversation image attachments and generated image originals, the vault’s common agent instructions (`.tiller/instructions.md`) and its AI tidy-up groups (`.tiller/organization.json`). When two devices change the groups, they are combined: a conversation placed in different groups follows the more recent tidy-up. Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. Working-folder files require selection in **Work file sync**; linking a root or editing a project instruction file does not select it automatically.
 
 Generated originals use the existing local image formats and limit: PNG, JPEG, GIF or WebP, up to 20 MiB per image.
 
@@ -56,11 +56,11 @@ Excluding a file removes its cloud reference and stops syncing it while preservi
 
 Conversations working inside the vault continue in the same folder of each device's vault, and home-folder conversations in each device's home folder. Other working folders need a folder on each device: a conversation from an unlinked folder opens read only and offers suggested folders in place of the message box. See [Working folders on other devices](vault.md#working-folders-on-other-devices). Only files selected in **Work file sync** are transferred into those folders.
 
-Claude CLI conversations in linked roots are included while tiller runs. The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. Run that command yourself with the official CLI and your own engine login. Open app conversations and recently modified terminal transcripts defer incoming changes to protect active work. This does not provide a headless sync agent when tiller is closed.
+Claude CLI conversations in linked roots are included while tiller runs. The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. Run that command yourself with the official CLI and your own engine login. An open conversation keeps incoming changes until you close it, and so does a conversation being written to at that moment; the rest of the vault syncs in the same run. This does not provide a headless sync agent when tiller is closed.
 
 **Codex conversations received from another device open read only.** History viewing and search work at once. **Continue on this device** carries the conversation so far into a new Codex thread here; the native thread and its tool state on the other device are not transferred. Recovered history stays read only, regardless of its original engine.
 
-Update every connected device before relying on these working-folder and merge features: earlier preview builds open vault-relative conversations read only.
+Update every connected device before relying on these working-folder and merge features: earlier preview builds open vault-relative conversations read only, and stop syncing once the vault carries AI tidy-up groups.
 
 ## Disconnect, delete, move and recover
 
