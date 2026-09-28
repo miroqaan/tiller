@@ -88,6 +88,8 @@ Close the app and the queue is still there when you come back.
 
 **Local storage by default.** No sync account is needed to keep, read or search local conversations. Official engine processes handle provider login and credential storage in separate local profiles, and Tiller sends your conversations to the engine you choose. Connecting a vault explicitly enables uploads of an end-to-end encrypted copy; engine credentials, sync tokens, queued actions and permission settings are excluded. A staging cloud service is deployed for testing.
 
+**Create or import a vault by name.** New vaults get their own folder under `Documents/Tiller Vaults`; existing vault locations stay unchanged. To import a cloud vault, choose it, enter a local name and its encryption password or recovery key, then open the prepared vault to start downloading. See [the vault guide](docs/vault.md).
+
 **English and Korean UI**, following the system language.
 
 ## Status

@@ -10,6 +10,8 @@ Open the sync panel from the sidebar or the current vault's **Sync settings**. *
 
 Test access is assigned to selected accounts; signing in alone does not grant access. Use the account refresh control to check for changes. A failed access check is shown as an error rather than as a missing or expired subscription. Custom service addresses and the encrypted-folder test transport are available in advanced settings; a previously configured custom service is preserved.
 
+To bring an existing remote vault to this device, choose **Import cloud vault**, select the remote vault, and enter a local name plus its encryption password or recovery key. Its local folder is assigned automatically under `Documents/Tiller Vaults`; you do not need to create an empty vault first. After the connection is prepared, choose **Open imported vault** to restart in it and download. Importing keeps the current vault and its connection intact, including when it already contains conversations. Wrong credentials do not create a local folder.
+
 New vault passwords require at least 12 characters. Creation shows a recovery key once; save it separately. The service cannot recover a lost password. A connected cloud vault also offers **Change vault password**, using the current password or recovery key. This replaces the password wrapper while preserving the vault key, recovery key, ciphertext and existing connected devices. It does not revoke devices; use **Connected devices → Revoke** for that.
 
 The service implements monthly subscription checks: expiry makes remote content access read only and prevents new uploads. Local conversations remain available. No paid service or checkout has launched, and no public price is announced here.
@@ -42,7 +44,7 @@ Excluding a file removes its cloud reference and stops syncing it while preservi
 
 ## Working across devices
 
-On a receiving device, register an empty local vault, connect the remote vault and map its working roots to local folders. A missing root mapping keeps the conversation read only. Only files selected in **Work file sync** are transferred into those folders.
+On a receiving device, import and open the remote vault, then map its working roots to local folders. The vault's storage folder is assigned automatically; working-root mappings remain an explicit device-specific choice. A missing root mapping keeps the conversation read only. Only files selected in **Work file sync** are transferred into those folders.
 
 Claude CLI conversations in linked roots are included while tiller runs. The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. Run that command yourself with the official CLI and your own engine login. Open app conversations and recently modified terminal transcripts defer incoming changes to protect active work. This does not provide a headless sync agent when tiller is closed.
 
