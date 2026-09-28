@@ -1,12 +1,14 @@
 # Personal vault sync preview
 
-Vault synchronization is implemented in the development preview. **No public download release or hosted cloud service is available yet.** Local integration tests exercise the client and service together, but live cloud sign-in and billing, real physical devices and Windows/macOS/Linux interoperability still need acceptance testing.
+Vault synchronization is implemented in the development preview. **No public download release or paid subscription service is available yet.** A staging cloud service is deployed, and GitHub sign-in and encrypted sync have been tested against it. Paid billing, real physical devices and Windows/macOS/Linux interoperability still need acceptance testing.
 
 The default is **Local only**. You can use local vaults without a sync account. Connecting a vault explicitly enables an encrypted remote copy of its supported conversation data. This preview is for your own vaults and devices; it does not provide shared team vaults.
 
 ## Controls in the preview
 
-The sidebar's **Vaults and sync** panel provides local vault selection, working-folder links, sync status, manual sync, recovery review and connection controls. The cloud path accepts a service address and GitHub sign-in, separately from your Claude or Codex account. It supports creating a remote vault or joining one with its password or recovery key. These controls require a separately configured service; an example address is not a running service.
+Open the sync panel from the sidebar or the current vault's **Sync settings**. **Tiller Sync** selects the test service automatically; you do not need to enter a service address. Sign in with GitHub in your browser, then return to Tiller to review the account's sync access and expiry, create a remote vault, or connect an existing one using its password or recovery key. This sync account is separate from your Claude or Codex account. Local vault management, working-folder links, sync status, manual sync and recovery review remain in the app.
+
+Test access is assigned to selected accounts; signing in alone does not grant access. Use the account refresh control to check for changes. A failed access check is shown as an error rather than as a missing or expired subscription. Custom service addresses and the encrypted-folder test transport are available in advanced settings; a previously configured custom service is preserved.
 
 New vault passwords require at least 12 characters. Creation shows a recovery key once; save it separately. The service cannot recover a lost password. A connected cloud vault also offers **Change vault password**, using the current password or recovery key. This replaces the password wrapper while preserving the vault key, recovery key, ciphertext and existing connected devices. It does not revoke devices; use **Connected devices → Revoke** for that.
 

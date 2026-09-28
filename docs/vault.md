@@ -17,7 +17,9 @@ Click the **current vault name in the sidebar** to open the vault manager. Each 
 
 The default vault and the currently open vault cannot be removed from the list. A vault connected to sync must be opened and disconnected before its registration can be removed. Working-folder mappings are retained for reopening a removed vault, but a mapping is not restored if another registered vault has since claimed that folder.
 
-Select **Sync settings** for the current vault to configure optional synchronization. Sync remains a development preview; the cloud service is not deployed yet.
+Select **Sync settings** for the current vault to open Tiller Sync. Sign in with GitHub, review the account's sync access and expiry, then create a new encrypted remote vault or connect an existing one. The test service is selected automatically. GitHub authorization opens in your browser; the connection steps stay in Tiller.
+
+Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive an existing remote vault on another device, first create and open an empty local vault, then connect it with the remote vault's password or recovery key. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
 
 ## Where your files live
 

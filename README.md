@@ -78,7 +78,9 @@ Close the app and the queue is still there when you come back.
 
 **Multiple accounts per engine.** The sidebar **Accounts** menu lets you add Codex and Claude accounts with **Add account**, without a fixed account-count limit. Existing accounts are preserved and added profiles persist across restarts. Complete the official provider login and select an account between tasks; existing Tiller conversations stay available. The menu shows login status, account email, and per-account plan usage reported by the official engine, including usage percentages and reset times. Usage checks do not send model prompts, and a failed check is displayed separately from login status.
 
-**Local storage by default.** No sync account is needed to keep, read or search local conversations. Official engine processes handle provider login and credential storage in separate local profiles, and Tiller sends your conversations to the engine you choose. Connecting a vault explicitly enables uploads of an end-to-end encrypted copy; engine credentials, sync tokens, queued actions and permission settings are excluded. The cloud service is not deployed yet.
+**Tiller Sync inside the app.** Sign in with GitHub from the sync panel, check your sync access and its expiry, then create an encrypted remote vault or connect an existing one. The test service is selected automatically; there is no server address to enter in the normal flow. GitHub authorization opens in your browser, and setup continues in Tiller. Test access is assigned to selected accounts; signing in does not automatically grant it. Paid subscriptions are not on sale yet.
+
+**Local storage by default.** No sync account is needed to keep, read or search local conversations. Official engine processes handle provider login and credential storage in separate local profiles, and Tiller sends your conversations to the engine you choose. Connecting a vault explicitly enables uploads of an end-to-end encrypted copy; engine credentials, sync tokens, queued actions and permission settings are excluded. A staging cloud service is deployed for testing.
 
 **English and Korean UI**, following the system language.
 
@@ -86,7 +88,7 @@ Close the app and the queue is still there when you come back.
 
 tiller is in development and **no installer has been published yet**. This repository is where releases will appear — [watch it](https://github.com/miroqaan/tiller/subscription) to hear about the first one.
 
-The vault and sync features documented here are an implemented development preview, **not a public download release**. Cloud deployment, live sign-in/billing acceptance and real cross-OS or physical-device sync acceptance remain unfinished. The encrypted-folder option is for local testing on one filesystem; Dropbox-style file replication is unsupported.
+The vault and sync features documented here are an implemented development preview, **not a public download release**. The staging service and GitHub sign-in have been tested; paid billing and real cross-OS or physical-device sync acceptance remain unfinished. Custom service addresses and the encrypted-folder option are advanced settings. The folder option is for local testing on one filesystem; Dropbox-style file replication is unsupported.
 
 | Platform | State |
 |---|---|
