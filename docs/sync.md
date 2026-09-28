@@ -54,7 +54,7 @@ Excluding a file removes its cloud reference and stops syncing it while preservi
 
 ## Working across devices
 
-Conversations working inside the vault continue in the same folder of each device's vault, and home-folder conversations in each device's home folder. Other working folders need a folder on each device: a conversation from an unlinked folder opens read only and offers suggested folders in place of the message box. See [Working folders on other devices](vault.md#working-folders-on-other-devices). Only files selected in **Work file sync** are transferred into those folders.
+Conversations working inside the vault continue in the same folder of each device's vault, and home-folder conversations in each device's home folder. Other working folders are linked on each device without asking: to the folder of the same name in the vault if there is one, otherwise to a new folder of the same name under the default location (`tiller-work` in your home folder, outside Documents, which OneDrive may sync). You can change that location and relink any folder. See [Working folders on other devices](vault.md#working-folders-on-other-devices). Only files selected in **Work file sync** are transferred into those folders.
 
 Claude CLI conversations in linked roots are included while tiller runs. The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. Run that command yourself with the official CLI and your own engine login. An open conversation keeps incoming changes until you close it, and so does a conversation being written to at that moment; the rest of the vault syncs in the same run. This does not provide a headless sync agent when tiller is closed.
 

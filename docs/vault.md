@@ -36,7 +36,7 @@ Conversations remember their working folder in a way each device can resolve:
 
 - **Folders inside the vault**, such as its projects and the unfiled folder, continue in the same place of each device's vault. No setup is needed.
 - **The home folder** of one device maps to each other device's home folder automatically. Terminal conversations in that folder are not imported by this automatic link.
-- **Other folders**, such as a repository, need a folder on this device. A conversation from such a folder opens read only and offers **Link to** a suggested folder, **Use this device's home folder**, or **Choose folder…** in place of the message box. Linking from there never imports that folder's terminal conversations; the explicit link in **Sync settings → Working folders** does.
+- **Other folders**, such as a repository, are linked without asking: to a folder of the same name in this vault if there is one, otherwise to a new folder of the same name under the default location. The default location is `tiller-work` in your home folder, deliberately outside Documents, which OneDrive may sync. Change it with **Working folders on this device → Location for folders from other devices → Change…**; folders linked later go there, and **Relink…** moves one already linked. Automatic links never import a folder's terminal conversations; an explicit **Link…** does. A folder whose conversation is open when it arrives stays read only until it can be linked, and then offers **Link to**, **Use this device's home folder** or **Choose folder…** in place of the message box.
 
 A Codex conversation from another device has no native thread here. **Continue on this device** carries the conversation so far into a new Codex thread on this device, as switching engines does, and the conversation continues in place. The other device then treats it the same way.
 
@@ -113,7 +113,7 @@ A vault owns its conversation records and can sync selected working files. Open 
 
 ## Working folders and terminal conversations
 
-A working root identifies a project independently of its absolute path. On another device, **Working folders on this device → Link…** maps it to that device's folder. Path mappings stay local. Until mapped, received conversations are read only.
+A working root identifies a project independently of its absolute path. On another device it is linked automatically as described in [Working folders on other devices](#working-folders-on-other-devices); **Working folders on this device → Relink…** maps it to another folder. Path mappings stay local. Until mapped, received conversations are read only.
 
 Claude CLI conversations in linked working folders are discovered while tiller runs, including terminal sessions created outside the app. **Find CLI conversations** requests a scan. Linking a folder can include more conversations than the ones you started in tiller; the panel asks for confirmation. There is no standalone background sync daemon in this preview.
 
