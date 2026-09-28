@@ -28,7 +28,7 @@ Newly created and imported vaults use the operating system's Documents folder un
 
 ## Combining vaults
 
-Two vaults are combined only when a local vault that already has conversations connects to a cloud vault: choose **Sync with a cloud vault you already use** (or **Switch to another cloud vault** for a connected vault) and confirm the warning, since the merge cannot be undone. See [One cloud vault for all devices](sync.md#one-cloud-vault-for-all-devices). There is no command to merge two local vaults on one device.
+Two vaults are combined only when a local vault that already has conversations connects to a cloud vault: choose **Sync with a cloud vault you already use** (disconnect a connected vault first) and confirm the warning, since the merge cannot be undone. See [One cloud vault for all devices](sync.md#one-cloud-vault-for-all-devices). There is no command to merge two local vaults on one device.
 
 ## Working folders on other devices
 
