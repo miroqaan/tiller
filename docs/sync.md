@@ -6,11 +6,21 @@ The default is **Local only**. You can use local vaults without a sync account. 
 
 ## Controls in the preview
 
-Open the sync panel from the sidebar or the current vault's **Sync settings**. **Tiller Sync** selects the test service automatically; you do not need to enter a service address. Sign in with GitHub in your browser, then return to Tiller to review the account's sync access and expiry, create a remote vault, or connect an existing one using its password or recovery key. This sync account is separate from your Claude or Codex account. Local vault management, working-folder links, sync status, manual sync and recovery review remain in the app.
+Open the sync panel from the sidebar or the current vault's **Sync settings**. **Tiller Sync** selects the test service automatically; you do not need to enter a service address. Sign in with GitHub in your browser, then return to Tiller to review the account's sync access and expiry, connect this vault to a cloud vault you already use, or create a new one. This sync account is separate from your Claude or Codex account. Local vault management, working-folder links, sync status, manual sync and recovery review remain in the app.
+
+## One cloud vault for all devices
+
+Connect every device to the same cloud vault. When a device already syncs, the sync panel of another vault lists the account's cloud vaults first under **Sync with a cloud vault you already use**. Choose one, enter its encryption password or recovery key, and select **Merge and connect**. This vault does not need to be empty: its conversations, projects and instructions are merged with the cloud vault's. Nothing is deleted on either side; a conversation present on both sides becomes one. If both sides changed the same conversation differently, both versions are kept as for any other sync conflict. Differing agent instructions keep the cloud vault's version and preserve this device's version for review.
+
+A connected vault offers **Switch to another cloud vault**. The new cloud vault's password is verified before the current connection ends, and this vault is merged into the new cloud vault. The previous cloud vault stays unchanged.
+
+If two devices already created separate cloud vaults, choose one cloud vault to keep. On a device with both, merge the vaults locally (see [Merge two vaults](vault.md#merge-two-vaults)), or open the other cloud vault as a local vault first and then merge it. On the other device, **Switch to another cloud vault** to the kept one. Then delete the unused cloud vault. A cloud vault already connected to another local vault on the same device cannot be connected again; merge that local vault instead, so one device never continues the same conversations in two vaults.
+
+Cloud vault names identify vaults before they are unlocked, so they are visible to the sync service; conversation data stays end-to-end encrypted. A new cloud vault takes its local vault's name, and a connected unnamed one is named after its local vault once. **Cloud vaults in this account** lets you rename them for every device or delete one that no local vault on this device uses. Deleting permanently removes its encrypted copy from the service. Devices still using it stop syncing; their local conversations stay, and they can connect to another cloud vault. The panel shows the per-account limit.
 
 Test access is assigned to selected accounts; signing in alone does not grant access. Use the account refresh control to check for changes. A failed access check is shown as an error rather than as a missing or expired subscription. Custom service addresses and the encrypted-folder test transport are available in advanced settings; a previously configured custom service is preserved.
 
-To bring an existing remote vault to this device, choose **Import cloud vault**, select the remote vault, and enter a local name plus its encryption password or recovery key. Its local folder is assigned automatically under `Documents/Tiller Vaults`; you do not need to create an empty vault first. After the connection is prepared, choose **Open imported vault** to restart in it and download. Importing keeps the current vault and its connection intact, including when it already contains conversations. Wrong credentials do not create a local folder.
+To keep a cloud vault as a separate local vault instead, choose **Open a cloud vault as a new local vault** (or **Import cloud vault** in the vault manager), select the remote vault, and enter a local name plus its encryption password or recovery key. Its local folder is assigned automatically under `Documents/Tiller Vaults`; you do not need to create an empty vault first. After the connection is prepared, choose **Open imported vault** to restart in it and download. Importing keeps the current vault and its connection intact, including when it already contains conversations. Wrong credentials do not create a local folder.
 
 New vault passwords require at least 12 characters. Creation shows a recovery key once; save it separately. The service cannot recover a lost password. A connected cloud vault also offers **Change vault password**, using the current password or recovery key. This replaces the password wrapper while preserving the vault key, recovery key, ciphertext and existing connected devices. It does not revoke devices; use **Connected devices → Revoke** for that.
 
@@ -44,17 +54,21 @@ Excluding a file removes its cloud reference and stops syncing it while preservi
 
 ## Working across devices
 
-On a receiving device, import and open the remote vault, then map its working roots to local folders. The vault's storage folder is assigned automatically; working-root mappings remain an explicit device-specific choice. A missing root mapping keeps the conversation read only. Only files selected in **Work file sync** are transferred into those folders.
+Conversations working inside the vault continue in the same folder of each device's vault, and home-folder conversations in each device's home folder. Other working folders need a folder on each device: a conversation from an unlinked folder opens read only and offers suggested folders in place of the message box. See [Working folders on other devices](vault.md#working-folders-on-other-devices). Only files selected in **Work file sync** are transferred into those folders.
 
 Claude CLI conversations in linked roots are included while tiller runs. The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. Run that command yourself with the official CLI and your own engine login. Open app conversations and recently modified terminal transcripts defer incoming changes to protect active work. This does not provide a headless sync agent when tiller is closed.
 
-**Codex conversations received from another device are read only.** History viewing and search are supported; native cross-device Codex resume is not. Recovered history is also read only, regardless of its original engine.
+**Codex conversations received from another device open read only.** History viewing and search work at once. **Continue on this device** carries the conversation so far into a new Codex thread here; the native thread and its tool state on the other device are not transferred. Recovered history stays read only, regardless of its original engine.
+
+Update every connected device before relying on these working-folder and merge features: earlier preview builds open vault-relative conversations read only.
 
 ## Disconnect, delete, move and recover
 
 | Action | Result |
 |---|---|
 | Disconnect | Stops this vault's connection and preserves both local files and the remote copy |
+| Switch to another cloud vault | Verifies the new password, ends the current connection and merges this vault into the chosen cloud vault; the previous cloud vault stays |
+| Delete a cloud vault | Permanently removes its encrypted copy from the service; devices still using it stop syncing and keep their local files |
 | Revoke a device | Invalidates that registration; files already saved on that device remain, and it must enroll again to reconnect |
 | Delete a synced conversation | Sends deletion to the connected vault and its other devices; offline devices catch up later |
 | Move a working root to another vault | Moves its file selection policy, creates new conversation identities in the destination and deletes the source identities, including on the source vault's other devices; source-vault file sharing stops and external project files stay in place |
@@ -63,7 +77,7 @@ Claude CLI conversations in linked roots are included while tiller runs. The con
 
 Deletion wins over stale offline edits. Conflicting local content can be retained as a recovery candidate rather than silently recreating a deleted thread. Review those candidates in the panel. Valid conversation-history snapshots can be restored; other files can be inspected in the backup folder. Recovery copies are not automatically uploaded or restored. Restoring history does not restore arbitrary attachments or permission grants.
 
-Deletion is not instant erasure of every copy: disconnected devices, independent backups and external engine history may remain. Remote unreferenced objects are collected separately. Disconnecting or signing out is not a remote-vault deletion request.
+Deletion is not instant erasure of every copy: disconnected devices, independent backups and external engine history may remain. Remote unreferenced objects are collected separately. Disconnecting or signing out is not a remote-vault deletion request; use **Delete** in **Cloud vaults in this account** for that.
 
 ## Encrypted folder transport
 

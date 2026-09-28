@@ -90,6 +90,8 @@ Close the app and the queue is still there when you come back.
 
 **Create or import a vault by name.** New vaults get their own folder under `Documents/Tiller Vaults`; existing vault locations stay unchanged. To import a cloud vault, choose it, enter a local name and its encryption password or recovery key, then open the prepared vault to start downloading. See [the vault guide](docs/vault.md).
 
+**One vault on every device.** A vault that already has conversations can connect to the cloud vault another device uses: both sides merge, nothing is deleted. Two local vaults merge into one from the vault manager, keeping conversation IDs. Conversations working inside the vault or the home folder continue on each device without setup; other folders are linked in place from the conversation. Codex conversations from another device continue here in a new thread. Cloud vaults have names and can be renamed or deleted. See [one cloud vault for all devices](docs/sync.md#one-cloud-vault-for-all-devices).
+
 **English and Korean UI**, following the system language.
 
 ## Status

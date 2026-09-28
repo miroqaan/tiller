@@ -14,15 +14,39 @@ Click the **current vault name in the sidebar** to open the vault manager. Each 
 | **Name on this device → Save** | Change the displayed name on this device. The folder and vault identity stay the same. |
 | **Open this vault** | Save open conversations and restart Tiller in the selected vault after confirmation. Finish running work before switching. |
 | **Show in file manager** | Open the vault folder in your system file manager. |
-| **Remove from list** | Remove this device's registration while keeping all files and conversation state. Open the same folder again to register the same vault identity. |
+| **Merge into *current vault*** | Move a vault that is not open into the open vault: its conversations, projects, working-folder links and agent instructions. See [Merge two vaults](#merge-two-vaults). |
+| **Remove from list** | Remove this device's registration while keeping all files and conversation state. A connected vault also stops syncing on this device; its cloud copy stays. Open the same folder again to register the same vault identity. |
 
-The default vault and the currently open vault cannot be removed from the list. A vault connected to sync must be opened and disconnected before its registration can be removed. Working-folder mappings are retained for reopening a removed vault, but a mapping is not restored if another registered vault has since claimed that folder.
+The default vault and the currently open vault cannot be removed from the list. Working-folder mappings are retained for reopening a removed vault, but a mapping is not restored if another registered vault has since claimed that folder.
 
-Select **Sync settings** for the current vault to open Tiller Sync. Sign in with GitHub, review the account's sync access and expiry, then create a new encrypted remote vault or connect an existing one. The test service is selected automatically. GitHub authorization opens in your browser; the connection steps stay in Tiller.
+Select **Sync settings** for the current vault to open Tiller Sync. Sign in with GitHub, review the account's sync access and expiry, then connect the vault to a cloud vault you already use on another device, or create a new one. The test service is selected automatically. GitHub authorization opens in your browser; the connection steps stay in Tiller. See [One cloud vault for all devices](sync.md#one-cloud-vault-for-all-devices).
 
 Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive a remote vault, choose **Import cloud vault** from the vault manager or sync panel, sign in with GitHub if needed, select the remote vault, and enter its password or recovery key and a name for this device. Then choose **Open imported vault**: the app restarts in that vault and downloads its contents. Your current vault and connection are preserved. A remote vault already connected on this device is reused instead of creating another copy.
 
 Newly created and imported vaults use the operating system's Documents folder under `Tiller Vaults`. Existing vault paths, including the original `Documents/Tiller` vault, stay unchanged. Renaming changes only the display name. Development and isolated test profiles use a separate managed directory inside their profile. **Open folder as vault** remains available for existing folders at any supported location. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
+
+## Merge two vaults
+
+Open the vault that should keep everything, then select the other vault in the vault manager and choose **Merge into *current vault***. After confirmation:
+
+- Conversations keep their IDs. A cloud vault that later receives both copies treats them as the same conversations.
+- Projects join by identity, then by folder name, as merging two folders would. Other projects are created in the open vault.
+- Working-folder links on this device move with their conversations. Conversations from another device's folders stay read only until you link a folder here; the result shows suggested folders.
+- The open vault's agent instructions stay in effect. If the merged vault's instructions differ, they wait in **Agent instructions** as a preserved copy. If the open vault had none, the merged instructions are used.
+- A conversation that already exists here with different content keeps the version here; the other copy is saved in `.tiller/backups/vault-merge/`.
+- The merged vault leaves the list, and its sync on this device ends; its cloud copy stays. Its folder remains as a backup and cannot be opened as a vault again, so the same conversations are never continued in two vaults. Delete that folder when you no longer need it.
+
+The default vault cannot be merged away; open it and merge the other vault into it. An interrupted merge can be run again and finishes without duplicating conversations.
+
+## Working folders on other devices
+
+Conversations remember their working folder in a way each device can resolve:
+
+- **Folders inside the vault**, such as its projects and the unfiled folder, continue in the same place of each device's vault. No setup is needed.
+- **The home folder** of one device maps to each other device's home folder automatically. Terminal conversations in that folder are not imported by this automatic link.
+- **Other folders**, such as a repository, need a folder on this device. A conversation from such a folder opens read only and offers **Link to** a suggested folder, **Use this device's home folder**, or **Choose folder…** in place of the message box. Linking from there never imports that folder's terminal conversations; the explicit link in **Sync settings → Working folders** does.
+
+A Codex conversation from another device has no native thread here. **Continue on this device** carries the conversation so far into a new Codex thread on this device, as switching engines does, and the conversation continues in place. The other device then treats it the same way.
 
 ## Agent instructions
 
