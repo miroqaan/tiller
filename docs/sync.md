@@ -58,7 +58,7 @@ Conversations working inside the vault continue in the same folder of each devic
 
 Claude CLI conversations in linked roots are included while tiller runs. The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. Run that command yourself with the official CLI and your own engine login. An open conversation keeps incoming changes until you close it, and so does a conversation being written to at that moment; the rest of the vault syncs in the same run. This does not provide a headless sync agent when tiller is closed.
 
-**Codex conversations received from another device open read only.** History viewing and search work at once. **Continue on this device** carries the conversation so far into a new Codex thread here; the native thread and its tool state on the other device are not transferred. Recovered history stays read only, regardless of its original engine.
+**Codex conversations received from another device continue when opened.** Opening one carries the conversation so far into a new Codex thread here, on the model and effort last chosen for Codex on this device; the native thread and its tool state on the other device are not transferred. Recovered history stays read only, regardless of its original engine.
 
 Update every connected device before relying on these working-folder and merge features: earlier preview builds open vault-relative conversations read only.
 
