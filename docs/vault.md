@@ -14,7 +14,6 @@ Click the **current vault name in the sidebar** to open the vault manager. Each 
 | **Name on this device → Save** | Change the displayed name on this device. The folder and vault identity stay the same. |
 | **Open in new window** | Open the vault in a window of its own, as in Obsidian. A vault that already has a window comes to the front. The current window keeps its conversations, running work and sync. |
 | **Show in file manager** | Open the vault folder in your system file manager. |
-| **Merge into *current vault*** | Move a vault that is not open into the open vault: its conversations, projects, working-folder links and agent instructions. See [Merge two vaults](#merge-two-vaults). |
 | **Remove from list** | Remove this device's registration while keeping all files and conversation state. A connected vault also stops syncing on this device; its cloud copy stays. Open the same folder again to register the same vault identity. |
 
 Each open vault has its own window. Closing a window stops only that vault's work and sync; if one of its conversations is still working, Tiller asks first. Closing the last window quits Tiller, and the next start opens the same windows again.
@@ -27,18 +26,9 @@ Test access is assigned to selected accounts and is not granted by signing in al
 
 Newly created and imported vaults use the operating system's Documents folder under `Tiller Vaults`. Existing vault paths, including the original `Documents/Tiller` vault, stay unchanged. Renaming changes only the display name. Development and isolated test profiles use a separate managed directory inside their profile. **Open folder as vault** remains available for existing folders at any supported location. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
 
-## Merge two vaults
+## Combining vaults
 
-Open the vault that should keep everything, then select the other vault in the vault manager and choose **Merge into *current vault***. If the other vault has a window, close it first. Tiller asks for confirmation because a merge cannot be undone; back up the vault folder first. After confirmation:
-
-- Conversations keep their IDs. A cloud vault that later receives both copies treats them as the same conversations.
-- Projects join by identity, then by folder name, as merging two folders would. Other projects are created in the open vault.
-- Working-folder links on this device move with their conversations. Conversations from another device's folders stay read only until you link a folder here; the result shows suggested folders.
-- The open vault's agent instructions stay in effect. If the merged vault's instructions differ, they wait in **Agent instructions** as a preserved copy. If the open vault had none, the merged instructions are used.
-- A conversation that already exists here with different content keeps the version here; the other copy is saved in `.tiller/backups/vault-merge/`.
-- The merged vault leaves the list, and its sync on this device ends; its cloud copy stays. Its folder remains as a backup and cannot be opened as a vault again, so the same conversations are never continued in two vaults. Delete that folder when you no longer need it.
-
-The default vault cannot be merged away; open it and merge the other vault into it. An interrupted merge can be run again and finishes without duplicating conversations.
+Two vaults are combined only when a local vault that already has conversations connects to a cloud vault: choose **Sync with a cloud vault you already use** (or **Switch to another cloud vault** for a connected vault) and confirm the warning, since the merge cannot be undone. See [One cloud vault for all devices](sync.md#one-cloud-vault-for-all-devices). There is no command to merge two local vaults on one device.
 
 ## Working folders on other devices
 
