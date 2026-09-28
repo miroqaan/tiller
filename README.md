@@ -82,6 +82,8 @@ Close the app and the queue is still there when you come back.
 
 **Keep working during sync.** Close the sync panel to use other conversations while synchronization continues. A compact status button opens the current stage, file or byte progress, elapsed time and recent sync log. Incoming conversation updates briefly protect the affected conversation while its files are applied; unrelated conversations remain available.
 
+**Instructions managed from the vault.** Open the current vault’s **Agent instructions** to edit common rules for Claude and Codex. These rules sync with a connected vault. **Additional instructions** shows existing global and project instruction files for the selected engine account and working folder; edit them in place with their source paths visible. Those existing files stay outside vault sync. Changes take effect in new conversations or after closing and reopening a conversation. External edits and sync conflicts preserve a copy for review. See [the instructions guide](docs/vault.md#agent-instructions).
+
 **Local storage by default.** No sync account is needed to keep, read or search local conversations. Official engine processes handle provider login and credential storage in separate local profiles, and Tiller sends your conversations to the engine you choose. Connecting a vault explicitly enables uploads of an end-to-end encrypted copy; engine credentials, sync tokens, queued actions and permission settings are excluded. A staging cloud service is deployed for testing.
 
 **English and Korean UI**, following the system language.

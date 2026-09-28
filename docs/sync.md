@@ -22,7 +22,9 @@ Incoming updates keep the affected conversation closed until its complete snapsh
 
 ## What is encrypted and uploaded
 
-Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, and supported conversation image attachments. Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. External working-folder files are not uploaded merely because a root is linked.
+Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, supported conversation image attachments, and the vault’s common agent instructions (`.tiller/instructions.md`). Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. External working-folder files are not uploaded merely because a root is linked. Existing engine global/project instruction files remain outside vault sync even when edited from Tiller.
+
+For [vault instructions](vault.md#agent-instructions), update every connected device to a version that supports the instructions editor. Older preview builds reject the new sync path. Concurrent instruction edits retain the local version as a recovery copy before applying the received version. Review it in **Agent instructions**, load it into the editor and save explicitly; the backup remains. Clearing the editor and saving syncs an empty instruction file.
 
 The client encrypts content and the file manifest before upload using AES-256-GCM. A random vault key is wrapped separately by a password-derived key and a recovery key. Password derivation uses scrypt. The server holds encrypted objects and encrypted key wrappers, not the plaintext vault key or password. It still sees operational metadata such as account/vault/device identifiers, object sizes, versions and request timing. This preview has not had an independent security audit.
 

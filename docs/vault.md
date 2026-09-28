@@ -21,6 +21,20 @@ Select **Sync settings** for the current vault to open Tiller Sync. Sign in with
 
 Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive an existing remote vault on another device, first create and open an empty local vault, then connect it with the remote vault's password or recovery key. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
 
+## Agent instructions
+
+Open the current vault’s **Agent instructions** from the vault manager. **Common vault instructions** holds working rules used by both Claude and Codex conversations in that vault. Save them locally without an account, or sync them with the vault when connected.
+
+**Additional instructions** automatically finds existing global and project files for the selected engine account and working folder, including Codex `AGENTS.md` / `AGENTS.override.md` and Claude `CLAUDE.md` / `CLAUDE.local.md`. Expand a source to see its original path and contents, then edit and save that original file. Global edits affect other vaults using that engine account. Here, “project” means the actual working folder’s instruction scope, rather than a conversation group name.
+
+Tiller does not create a separate global/project settings hierarchy or copy those existing files into the vault. They are not uploaded by vault sync. Native engines still decide which instructions to load, including precedence, size limits, settings, imports and rules; the panel identifies shadowed or conditional sources where possible.
+
+Saved vault instructions take effect in new conversations, new side chats, or after closing and reopening a conversation. Running work keeps its current instructions. An unsaved editor draft stays available when you close the panel, collapse the sidebar or switch the interface language during this app session.
+
+If a file changed outside the editor, Tiller preserves your draft and lets you inspect the latest original before saving. Instructions use UTF-8 text, up to 128 KiB; existing BOM and Windows line endings are preserved. Linked instruction files cannot be edited through this panel. Sync conflicts retain a local **Instruction recovery copy** that you can inspect and load into the vault editor as an unsaved draft. Saving that draft is a separate action and keeps the backup.
+
+The vault-owned file is `.tiller/instructions.md`. Update Tiller on every connected device before syncing instructions; older preview builds do not recognize this new sync path.
+
 ## Where your files live
 
 The normal vault is the operating system's Documents folder plus `Tiller`. Documents may itself be redirected, for example by OneDrive. Each app project has a folder, and each conversation has a session folder:
@@ -28,6 +42,7 @@ The normal vault is the operating system's Documents folder plus `Tiller`. Docum
 ```text
 Documents/Tiller/
   .tiller/                       vault metadata and local backups
+    instructions.md              common agent instructions; included in vault sync
   <project>/
     .tiller/project.json         stable project identity
     sessions/<conversation-id>/
@@ -65,6 +80,7 @@ The old `<userData>/vault/threads/` layout is imported while preserving its orig
 
 | Item | Purpose |
 |---|---|
+| `.tiller/instructions.md` | Common agent instructions for this vault |
 | `conversation.json` | History as tiller displays it, including threads that changed engines |
 | `meta.json` | Conversation identity, title, engine and project information |
 | `transcript.jsonl` | Claude's native history snapshot |
