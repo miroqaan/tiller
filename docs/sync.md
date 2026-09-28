@@ -10,7 +10,7 @@ Open the sync panel from the sidebar or the current vault's **Sync settings**. *
 
 ## One cloud vault for all devices
 
-Connect every device to the same cloud vault. When a device already syncs, the sync panel of another vault lists the account's cloud vaults first under **Sync with a cloud vault you already use**. Choose one, enter its encryption password or recovery key, and select **Merge and connect**. This vault does not need to be empty: its conversations, projects, instructions and AI tidy-up groups are merged with the cloud vault's. If this vault already has conversations or projects, Tiller asks first, because a merge cannot be undone; back up the vault folder before you continue. A conversation present on both sides becomes one. If both sides changed the same conversation differently, both versions are kept as for any other sync conflict. Conversations you deleted on this device are also deleted from the cloud vault. Differing agent instructions keep the cloud vault's version and preserve this device's version for review.
+Connect every device to the same cloud vault. When a device already syncs, the sync panel of another vault lists the account's cloud vaults first under **Sync with a cloud vault you already use**. Choose one, enter its encryption password or recovery key, and select **Merge and connect**. This vault does not need to be empty: its conversations, projects and instructions are merged with the cloud vault's. If this vault already has conversations or projects, Tiller asks first, because a merge cannot be undone; back up the vault folder before you continue. A conversation present on both sides becomes one. If both sides changed the same conversation differently, both versions are kept as for any other sync conflict. Conversations you deleted on this device are also deleted from the cloud vault. Differing agent instructions keep the cloud vault's version and preserve this device's version for review.
 
 A connected vault offers **Switch to another cloud vault**. The new cloud vault's password is verified before the current connection ends, and this vault is merged into the new cloud vault. The previous cloud vault stays unchanged.
 
@@ -34,7 +34,7 @@ Incoming updates keep the affected conversation closed until its complete snapsh
 
 ## What is encrypted and uploaded
 
-Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, supported conversation image attachments and generated image originals, the vault’s common agent instructions (`.tiller/instructions.md`) and its AI tidy-up groups (`.tiller/organization.json`). When two devices change the groups, they are combined: a conversation placed in different groups follows the more recent tidy-up. Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. Working-folder files require selection in **Work file sync**; linking a root or editing a project instruction file does not select it automatically.
+Supported uploads include conversation history, Claude transcript snapshots, conversation metadata, project and root descriptions, supported conversation image attachments and generated image originals, and the vault’s common agent instructions (`.tiller/instructions.md`). Projects you create sync with their conversations; AI tidy-up groups are a view on each device and are not uploaded. Codex conversation history can be read and searched on another device, but its native rollout and engine database are not synchronized for resume. Working-folder files require selection in **Work file sync**; linking a root or editing a project instruction file does not select it automatically.
 
 Generated originals use the existing local image formats and limit: PNG, JPEG, GIF or WebP, up to 20 MiB per image.
 
@@ -60,7 +60,7 @@ Claude CLI conversations in linked roots are included while tiller runs. The con
 
 **Codex conversations received from another device open read only.** History viewing and search work at once. **Continue on this device** carries the conversation so far into a new Codex thread here; the native thread and its tool state on the other device are not transferred. Recovered history stays read only, regardless of its original engine.
 
-Update every connected device before relying on these working-folder and merge features: earlier preview builds open vault-relative conversations read only, and stop syncing once the vault carries AI tidy-up groups.
+Update every connected device before relying on these working-folder and merge features: earlier preview builds open vault-relative conversations read only.
 
 ## Disconnect, delete, move and recover
 

@@ -34,7 +34,6 @@ Open the vault that should keep everything, then select the other vault in the v
 - Conversations keep their IDs. A cloud vault that later receives both copies treats them as the same conversations.
 - Projects join by identity, then by folder name, as merging two folders would. Other projects are created in the open vault.
 - Working-folder links on this device move with their conversations. Conversations from another device's folders stay read only until you link a folder here; the result shows suggested folders.
-- AI tidy-up groups of both vaults are combined, so merged conversations keep their groups.
 - The open vault's agent instructions stay in effect. If the merged vault's instructions differ, they wait in **Agent instructions** as a preserved copy. If the open vault had none, the merged instructions are used.
 - A conversation that already exists here with different content keeps the version here; the other copy is saved in `.tiller/backups/vault-merge/`.
 - The merged vault leaves the list, and its sync on this device ends; its cloud copy stays. Its folder remains as a backup and cannot be opened as a vault again, so the same conversations are never continued in two vaults. Delete that folder when you no longer need it.
