@@ -35,8 +35,8 @@ Two vaults are combined only when a local vault that already has conversations c
 Conversations remember their working folder in a way each device can resolve:
 
 - **Folders inside the vault**, such as its projects and the unfiled folder, continue in the same place of each device's vault. No setup is needed.
-- **The home folder** of one device maps to each other device's home folder automatically. Terminal conversations in that folder are not imported by this automatic link.
-- **Other folders**, such as a repository, are linked without asking: to a folder of the same name in this vault if there is one, otherwise to a new folder of the same name under the default location. The default location is `tiller-work` in your home folder, deliberately outside Documents, which OneDrive may sync. Change it with **Working folders on this device → Location for folders from other devices → Change…**; folders linked later go there, and **Relink…** moves one already linked. Automatic links never import a folder's terminal conversations; an explicit **Link…** does. A folder whose conversation is open when it arrives stays read only until it can be linked, and then offers **Link to**, **Use this device's home folder** or **Choose folder…** in place of the message box.
+- **The home folder** of one device maps to each other device's home folder automatically.
+- **Other folders**, such as a repository, are linked without asking: to a folder of the same name in this vault if there is one, otherwise to a new folder of the same name under the default location. The default location is `tiller-work` in your home folder, deliberately outside Documents, which OneDrive may sync. Change it with **Working folders on this device → Location for folders from other devices → Change…**; folders linked later go there, and **Relink…** moves one already linked. A folder whose conversation is open when it arrives stays read only until it can be linked, and then offers **Link to**, **Use this device's home folder** or **Choose folder…** in place of the message box.
 
 A Codex conversation from another device has no native thread here. Opening it carries the conversation so far into a new Codex thread on this device, as switching engines does, and you continue in place with the model and effort last chosen for Codex on this device. If that fails, for example without a usable Codex engine, the history still opens with the reason and **Try again**. The other device then treats it the same way.
 
@@ -111,11 +111,11 @@ Engine snapshots are retained as opaque history copies. Before resuming Claude, 
 
 A vault owns its conversation records and can sync selected working files. Open **Work file sync** from the current vault's settings to include files or folders, including project key files such as `.env`, and exclude individual children. A link in a conversation does not automatically select its referenced working file. Videos offer an inclusion button in their card; received video/audio originals download on request or when kept offline. See [file selection and limits](sync.md#choose-working-files).
 
-## Working folders and terminal conversations
+## Working folders
 
 A working root identifies a project independently of its absolute path. On another device it is linked automatically as described in [Working folders on other devices](#working-folders-on-other-devices); **Working folders on this device → Relink…** maps it to another folder. Path mappings stay local. Until mapped, received conversations are read only.
 
-Claude CLI conversations in linked working folders are discovered while Tiller runs, including terminal sessions created outside the app. **Find CLI conversations** requests a scan. Linking a folder can include more conversations than the ones you started in Tiller; the panel asks for confirmation. There is no standalone background sync daemon in this preview.
+Tiller shows the conversations you have in Tiller. It does not bring in Claude Code or Codex conversations from the terminal or other apps.
 
 ## Credentials and local-only state
 
