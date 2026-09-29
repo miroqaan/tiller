@@ -1,5 +1,5 @@
 name: Bug report
-description: Something in tiller behaved wrong
+description: Something in Tiller behaved wrong
 labels: ["bug"]
 body:
   - type: markdown
@@ -48,7 +48,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: tiller version
+      label: Tiller version
       description: From the sidebar footer, or the installer file name.
       placeholder: "0.1.0"
     validations:

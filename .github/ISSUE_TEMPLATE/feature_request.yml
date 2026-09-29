@@ -1,5 +1,5 @@
 name: Feature request
-description: Something tiller should do, or do differently
+description: Something Tiller should do, or do differently
 labels: ["enhancement"]
 body:
   - type: markdown
@@ -30,7 +30,7 @@ body:
     id: workaround
     attributes:
       label: How do you handle it today?
-      description: What you do now, in tiller or outside it. This says a lot about how much the gap costs.
+      description: What you do now, in Tiller or outside it. This says a lot about how much the gap costs.
     validations:
       required: false
 
@@ -39,7 +39,7 @@ body:
     attributes:
       label: Does this concern a particular engine?
       options:
-        - Both / neither, it is about tiller itself
+        - Both / neither, it is about Tiller itself
         - Claude Code
         - Codex
     validations:

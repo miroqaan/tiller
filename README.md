@@ -1,6 +1,6 @@
 <div align="center">
   <img src="docs/icon.png" width="96" alt="">
-  <h1>tiller</h1>
+  <h1>Tiller</h1>
   <p><strong>A desktop app for Claude Code and Codex, built around one idea: keep typing while the agent works.</strong></p>
   <p>
     <a href="https://github.com/miroqaan/tiller/releases">Releases</a> ·
@@ -25,7 +25,7 @@ The same request keeps coming back in the Claude Code issue tracker:
 - [anthropics/claude-code#77537](https://github.com/anthropics/claude-code/issues/77537) — a first-class queue UI: view, delete and inject items individually
 - [anthropics/claude-code#30492](https://github.com/anthropics/claude-code/issues/30492) — real-time steering between tool calls
 
-tiller is a frontend that fills that gap. It does not replace the agent; it drives the one you already have.
+Tiller is a frontend that fills that gap. It does not replace the agent; it drives the one you already have.
 
 ## Queue and steer
 
@@ -74,7 +74,7 @@ Close the app and the queue is still there when you come back.
 
 **Recover from empty tool errors.** Engine handoff supplies text for empty Claude tool failures. Existing malformed results are backed up and repaired before a thread resumes. Codex also repairs missing history indexes after account changes while preserving fork ancestry.
 
-**Your conversations, kept by tiller.** Conversations, engine history copies and attachments live in ordinary project folders under your local vault, normally `Documents/Tiller`. Click the **current vault name in the sidebar** to create a vault in a new folder, open an existing folder, rename its display name on this device, or open another vault in a window of its own. The manager can show a vault in your file manager or remove a vault without an open window from the list while preserving all its files; the default vault stays registered. Local vaults need no account. Separate sync settings provide working-folder mappings, Claude CLI discovery and optional encrypted synchronization in the development preview. Claude conversations can be prepared for terminal resume; Codex history received from another device is read only. See [the vault guide](docs/vault.md) and [sync preview](docs/sync.md).
+**Your conversations, kept by Tiller.** Conversations, engine history copies and attachments live in ordinary project folders under your local vault, normally `Documents/Tiller`. Click the **current vault name in the sidebar** to create a vault in a new folder, open an existing folder, rename its display name on this device, or open another vault in a window of its own. The manager can show a vault in your file manager or remove a vault without an open window from the list while preserving all its files; the default vault stays registered. Local vaults need no account. Separate sync settings provide working-folder mappings, Claude CLI discovery and optional encrypted synchronization in the development preview. Claude conversations can be prepared for terminal resume; Codex history received from another device is read only. See [the vault guide](docs/vault.md) and [sync preview](docs/sync.md).
 
 **Multiple accounts per engine.** The sidebar **Accounts** menu lets you add Codex and Claude accounts with **Add account**, without a fixed account-count limit. Existing accounts are preserved and added profiles persist across restarts. Complete the official provider login and select an account between tasks; existing Tiller conversations stay available. The menu shows login status, account email, and per-account plan usage reported by the official engine, including usage percentages and reset times. Usage checks do not send model prompts, and a failed check is displayed separately from login status.
 
@@ -98,35 +98,33 @@ Close the app and the queue is still there when you come back.
 
 ## Status
 
-tiller is in development and **no installer has been published yet**. This repository is where releases will appear — [watch it](https://github.com/miroqaan/tiller/subscription) to hear about the first one.
+Tiller 0.1.0 is out as a **Windows x64 pre-release**. Download `Tiller-Setup-0.1.0-x64.exe` from the [Releases page](https://github.com/miroqaan/tiller/releases). The installer is not code-signed yet, so Windows SmartScreen warns about an unknown publisher; you can check the download against `SHA256SUMS.txt` first. There are no automatic updates yet — [watch this repository](https://github.com/miroqaan/tiller/subscription) to hear about new releases.
 
-The vault and sync features documented here are an implemented development preview, **not a public download release**. The staging service and GitHub sign-in have been tested; paid billing and real cross-OS or physical-device sync acceptance remain unfinished. Custom service addresses and the encrypted-folder option are advanced settings. The folder option is for local testing on one filesystem; Dropbox-style file replication is unsupported.
+The vault and sync features documented here are an implemented development preview and **may be ahead of the latest release**. The staging service and GitHub sign-in have been tested; paid billing and real cross-OS or physical-device sync acceptance remain unfinished. Custom service addresses and the encrypted-folder option are advanced settings. The folder option is for local testing on one filesystem; Dropbox-style file replication is unsupported.
 
 | Platform | State |
 |---|---|
-| Windows | The development platform. Verified from the unpacked package; installer not yet published |
+| Windows | x64 pre-release installer published (0.1.0, not code-signed) |
 | macOS | Not built or notarized yet |
 | Linux | AppImage planned |
 
-Installers will carry both engines, so the app works straight after installation with nothing else to install. The Claude Code binary ships exactly as Anthropic publishes it: not modified, not re-signed, no sign-in method removed.
+The installer carries both engines, so the app works straight after installation with nothing else to install. The Claude Code binary ships exactly as Anthropic publishes it: not modified, not re-signed, no sign-in method removed.
 
 ## Issues and requests
 
 **This repository is the place for them.** Bug reports, feature requests and questions all go to [Issues](https://github.com/miroqaan/tiller/issues/new/choose) — the templates ask for the few things that make a report actionable (what you did, which engine, which version).
 
-The application source is not here. tiller is proprietary and its source lives in a private repository, so this repository holds the release downloads, the issue tracker, and the published documentation. Pull requests are welcome for the documentation in `docs/`.
+The application source is not here. Tiller is proprietary and its source lives in a private repository, so this repository holds the release downloads, the issue tracker, and the published documentation. Pull requests are welcome for the documentation in `docs/`.
 
 Before opening an issue, a quick look through [existing issues](https://github.com/miroqaan/tiller/issues?q=is%3Aissue) saves everyone a round trip. Something that looks like a security problem goes through [SECURITY.md](SECURITY.md) instead, not a public issue.
 
 ## Notes
 
 - "Bypass permissions" mode runs everything without asking, including files outside the project. Turn it on only when you mean it.
-- The optional computer-use tools move the real mouse and type on the real keyboard of the machine tiller runs on. Expect the cursor to be taken over while a turn runs.
+- The optional computer-use tools move the real mouse and type on the real keyboard of the machine Tiller runs on. Expect the cursor to be taken over while a turn runs.
 
 ## Legal
 
-tiller is a personal project and is **not affiliated with, endorsed by or sponsored by Anthropic or OpenAI**. Claude and Claude Code are trademarks of Anthropic; Codex is a trademark of OpenAI. Using tiller with either engine is subject to that engine's own terms.
+Tiller is a personal project and is **not affiliated with, endorsed by or sponsored by Anthropic or OpenAI**. Claude and Claude Code are trademarks of Anthropic; Codex is a trademark of OpenAI. Using Tiller with either engine is subject to that engine's own terms.
 
 The application is proprietary. See [LICENSE](LICENSE) for what this repository covers.
-
-[한국어 README](README.ko.md)

@@ -1,6 +1,6 @@
 # Your personal vault
 
-tiller keeps its own conversation history in ordinary folders you control. You can read and back up those files without a sync account. This page describes the current development preview; no public installer has been released. See [sync preview](sync.md) for optional encrypted uploads and their current limits.
+Tiller keeps its own conversation history in ordinary folders you control. You can read and back up those files without a sync account. This page describes the current development preview, which may be ahead of the latest release. See [sync preview](sync.md) for optional encrypted uploads and their current limits.
 
 ## Manage local vaults
 
@@ -73,7 +73,7 @@ Documents/Tiller/
   미분류/sessions/                unfiled conversations
 ```
 
-Only files applicable to that conversation are present. `미분류` is the current on-disk name for the unfiled folder. Projects created in tiller have identity markers, so their folders can be renamed without changing identity. Arbitrary folders placed beside them are not automatically made into projects.
+Only files applicable to that conversation are present. `미분류` is the current on-disk name for the unfiled folder. Projects created in Tiller have identity markers, so their folders can be renamed without changing identity. Arbitrary folders placed beside them are not automatically made into projects.
 
 Additional vaults can live in folders you choose. Registered vault folders must be separate: one vault cannot be inside another.
 
@@ -100,14 +100,14 @@ The old `<userData>/vault/threads/` layout is imported while preserving its orig
 | Item | Purpose |
 |---|---|
 | `.tiller/instructions.md` | Common agent instructions for this vault |
-| `conversation.json` | History as tiller displays it, including threads that changed engines |
+| `conversation.json` | History as Tiller displays it, including threads that changed engines |
 | `meta.json` | Conversation identity, title, engine and project information |
 | `transcript.jsonl` | Claude's native history snapshot |
 | `rollout.jsonl` | Local Codex history snapshot; not uploaded by the sync preview |
 | `attachments/` | Attached images and durable generated image originals |
 | `.tiller/file-sync/` | Portable file and folder selection rules |
 
-Engine snapshots are retained as opaque history copies. Before resuming Claude, tiller validates and materializes a needed native transcript. A different existing native transcript is preserved and the incoming history gets a fresh engine identity. Codex history from another device remains readable and searchable, without treating a copied file as a resumable Codex thread.
+Engine snapshots are retained as opaque history copies. Before resuming Claude, Tiller validates and materializes a needed native transcript. A different existing native transcript is preserved and the incoming history gets a fresh engine identity. Codex history from another device remains readable and searchable, without treating a copied file as a resumable Codex thread.
 
 A vault owns its conversation records and can sync selected working files. Open **Work file sync** from the current vault's settings to include files or folders, including project key files such as `.env`, and exclude individual children. A link in a conversation does not automatically select its referenced working file. Videos offer an inclusion button in their card; received video/audio originals download on request or when kept offline. See [file selection and limits](sync.md#choose-working-files).
 
@@ -115,7 +115,7 @@ A vault owns its conversation records and can sync selected working files. Open 
 
 A working root identifies a project independently of its absolute path. On another device it is linked automatically as described in [Working folders on other devices](#working-folders-on-other-devices); **Working folders on this device → Relink…** maps it to another folder. Path mappings stay local. Until mapped, received conversations are read only.
 
-Claude CLI conversations in linked working folders are discovered while tiller runs, including terminal sessions created outside the app. **Find CLI conversations** requests a scan. Linking a folder can include more conversations than the ones you started in tiller; the panel asks for confirmation. There is no standalone background sync daemon in this preview.
+Claude CLI conversations in linked working folders are discovered while Tiller runs, including terminal sessions created outside the app. **Find CLI conversations** requests a scan. Linking a folder can include more conversations than the ones you started in Tiller; the panel asks for confirmation. There is no standalone background sync daemon in this preview.
 
 ## Credentials and local-only state
 
