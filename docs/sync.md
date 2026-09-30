@@ -28,9 +28,11 @@ The service implements monthly subscription checks: expiry makes remote content 
 
 ## Progress and background work
 
-Close the sync panel to continue working in other conversations. Synchronization continues, and a compact status button lets you reopen its details. The panel shows the current stage, completed files or transferred bytes, elapsed time, and a recent **Sync log** with timestamps and errors. The percentage covers the whole run and does not go back as the stages change. The log is kept for the current app session and can be cleared.
+Close the sync panel to continue working in other conversations. Synchronization continues, and a compact status button lets you reopen its details. Sync works file by file: only changed files are uploaded or downloaded, and a large file sends only the pieces that changed. A file that fails is retried on its own and does not hold up the rest.
 
-Incoming updates keep the affected conversation closed until its complete snapshot has been applied. Other conversations can still be opened or created. Project-folder and root changes may briefly require a wider pause to keep file locations consistent. Settings that would disconnect or replace the active sync connection wait until the current operation finishes.
+The status line shows **Synced**, **Syncing · N to upload · M to download**, **Paused**, **Offline** (retried automatically) or **Needs attention** with the reason, such as an expired sign-in or a required app update. **Pause** stops syncing on this device until you resume it. The **Sync log** names each file by its conversation title or file name, newest first, and can be filtered to errors, skipped files or conflicts. It is kept for the current app session and can be cleared.
+
+A conversation that is answering uploads its progress at most once a minute and the rest when the turn ends, and other devices show that it is running there. Open conversations that are idle take incoming changes right away; one that is answering takes them after its turn. Other conversations can still be opened or created. Project-folder and root changes may briefly require a wider pause to keep file locations consistent. Disconnecting, signing out, changing the password or moving working folders stop the running transfer and go ahead at once; syncing continues afterwards.
 
 ## What is encrypted and uploaded
 
@@ -40,7 +42,7 @@ Generated originals use the existing local image formats and limit: PNG, JPEG, G
 
 For [vault instructions](vault.md#agent-instructions), update every connected device to a version that supports the instructions editor. Older preview builds reject the new sync path. Concurrent instruction edits retain the local version as a recovery copy before applying the received version. Review it in **Agent instructions**, load it into the editor and save explicitly; the backup remains. Clearing the editor and saving syncs an empty instruction file.
 
-The client encrypts content and the file manifest before upload using AES-256-GCM. A random vault key is wrapped by a password-derived key. Password derivation uses scrypt. The server holds encrypted objects and encrypted key wrappers, not the plaintext vault key or password. It still sees operational metadata such as account/vault/device identifiers, object sizes, versions and request timing. This preview has not had an independent security audit.
+The client encrypts file contents and each file's record (its path, size and pieces) before upload using AES-256-GCM. A random vault key is wrapped by a password-derived key. Password derivation uses scrypt. The server holds encrypted objects and encrypted key wrappers, not the plaintext vault key or password. It still sees operational metadata such as account/vault/device identifiers, object sizes, versions, which records belong to the same conversation (through an opaque identifier) and request timing. This preview has not had an independent security audit.
 
 Engine-managed credentials, app-managed API keys, sync account tokens, local path mappings, queues, automatic execution state and permission grants are excluded. Project key files such as `.env` can be selected like any other working file. Secrets already inside conversation text or attachments remain inside that encrypted history. Local vault and working files remain readable plaintext on your device.
 
@@ -56,11 +58,13 @@ Excluding a file removes its cloud reference and stops syncing it while preservi
 
 Conversations working inside the vault continue in the same folder of each device's vault, and home-folder conversations in each device's home folder. Other working folders are linked on each device without asking: to the folder of the same name in the vault if there is one, otherwise to a new folder of the same name under the default location (`tiller-work` in your home folder, outside Documents, which OneDrive may sync). You can change that location and relink any folder. See [Working folders on other devices](vault.md#working-folders-on-other-devices). Only files selected in **Work file sync** are transferred into those folders.
 
-The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. It runs the official CLI on Tiller's Claude account, so the conversation continues with the same login and history. An open conversation keeps incoming changes until you close it, and so does a conversation being written to at that moment; the rest of the vault syncs in the same run. This does not provide a headless sync agent when Tiller is closed.
+The conversation menu can copy a terminal-resume command after preparing the native Claude transcript. It runs the official CLI on Tiller's Claude account, so the conversation continues with the same login and history. A conversation answering on this device keeps incoming changes until its turn ends; the rest of the vault syncs meanwhile. This does not provide a headless sync agent when Tiller is closed.
 
 **Codex conversations received from another device continue when opened.** Opening one carries the conversation so far into a new Codex thread here, on the model and effort last chosen for Codex on this device; the native thread and its tool state on the other device are not transferred. Recovered history stays read only, regardless of its original engine.
 
 Update every connected device before relying on these working-folder and merge features: earlier preview builds open vault-relative conversations read only.
+
+**Update every device for per-file sync.** The first updated device to connect converts the cloud vault. Earlier builds then show "Update Tiller to keep syncing this vault." and stop syncing it until they are updated; their local conversations stay.
 
 ## Disconnect, delete, move and recover
 
