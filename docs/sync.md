@@ -28,7 +28,7 @@ The service implements monthly subscription checks: expiry makes remote content 
 
 ## Progress and background work
 
-Close the sync panel to continue working in other conversations. Synchronization continues, and a compact status button lets you reopen its details. Sync works file by file: only changed files are uploaded or downloaded, and a large file sends only the pieces that changed. A file that fails is retried on its own and does not hold up the rest.
+Close the sync panel to continue working in other conversations. Synchronization continues, and a compact status button lets you reopen its details. Sync works file by file: only changed files are uploaded or downloaded, and a large file sends only the pieces that changed. A file that fails is retried on its own and does not hold up the rest. Conversations new to this device are listed as soon as their details arrive, with a cloud icon while their content is still on its way; the most recently used ones come down first, and each opens once it is complete.
 
 The status line shows **Synced**, **Syncing · N to upload · M to download**, **Paused**, **Offline** (retried automatically) or **Needs attention** with the reason, such as an expired sign-in or a required app update. **Pause** stops syncing on this device until you resume it. The **Sync log** names each file by its conversation title or file name, newest first, and can be filtered to errors, skipped files or conflicts. It is kept for the current app session and can be cleared.
 
