@@ -4,13 +4,13 @@ Tiller keeps its own conversation history in ordinary folders you control. You c
 
 ## Manage local vaults
 
-Click the **current vault name in the sidebar** to open the vault manager. Each vault keeps its own conversations, projects and working-folder mappings. Creating and managing local vaults requires no account or sync connection.
+Click the **current vault name in the sidebar** and choose **Vault settings**. The first page lists every vault on this device; select one to rename it, show its folder, open it in a new window or remove it from the list. **New vault**, **From cloud** and **Open folder** below the list add one. Each vault keeps its own conversations, projects and working-folder mappings. Creating and managing local vaults requires no account or sync connection.
 
 | Action | What happens |
 |---|---|
-| **Create vault** | Enter a name. Tiller creates `Documents/Tiller Vaults/<name>` automatically, adding `(2)`, `(3)`, etc. if a name is already occupied. No folder selection is needed. |
-| **Import cloud vault** | Choose a remote vault, enter a local name and its encryption password. Tiller prepares a separate local vault at an automatic location and opens it in a new window, which downloads it. |
-| **Open folder as vault** | Add an existing vault folder, or start a vault in an empty folder. Adding it to the list does not switch your current vault. |
+| **New vault** | Enter a name. Tiller creates `Documents/Tiller Vaults/<name>` automatically, adding `(2)`, `(3)`, etc. if a name is already occupied. No folder selection is needed. |
+| **From cloud** | Choose a remote vault, enter a local name and its encryption password. Tiller prepares a separate local vault at an automatic location and opens it in a new window, which downloads it. |
+| **Open folder** | Add an existing vault folder, or start a vault in an empty folder. Adding it to the list does not switch your current vault. |
 | **Name on this device → Save** | Change the displayed name on this device. The folder and vault identity stay the same. |
 | **Open in new window** | Open the vault in a window of its own, as in Obsidian. A vault that already has a window comes to the front. The current window keeps its conversations, running work and sync. |
 | **Show in file manager** | Open the vault folder in your system file manager. |
@@ -22,9 +22,9 @@ The default vault and vaults with an open window cannot be removed from the list
 
 Select **Sync settings** for the current vault to open Tiller Sync. Sign in with GitHub, review the account's sync access and expiry, then connect the vault to a cloud vault you already use on another device, or create a new one. The test service is selected automatically. GitHub authorization opens in your browser; the connection steps stay in Tiller. See [One cloud vault for all devices](sync.md#one-cloud-vault-for-all-devices).
 
-Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive a remote vault, choose **Import cloud vault** from the vault manager or sync panel, sign in with GitHub if needed, select the remote vault, and enter its password and a name for this device. The imported vault then opens in a window of its own and downloads its contents; **Go to its window** brings that window forward again. Your current vault and connection are preserved. A remote vault already connected on this device is reused instead of creating another copy.
+Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive a remote vault, choose **From cloud** under the vault list in **Vault settings**, sign in with GitHub if needed, select the remote vault, and enter its password and a name for this device. The imported vault then opens in a window of its own and downloads its contents; **Go to its window** brings that window forward again. Your current vault and connection are preserved. A remote vault already connected on this device is reused instead of creating another copy.
 
-Newly created and imported vaults use the operating system's Documents folder under `Tiller Vaults`. Existing vault paths, including the original `Documents/Tiller` vault, stay unchanged. Renaming changes only the display name. Development and isolated test profiles use a separate managed directory inside their profile. **Open folder as vault** remains available for existing folders at any supported location. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
+Newly created and imported vaults use the operating system's Documents folder under `Tiller Vaults`. Existing vault paths, including the original `Documents/Tiller` vault, stay unchanged. Renaming changes only the display name. Development and isolated test profiles use a separate managed directory inside their profile. **Open folder** remains available for existing folders at any supported location. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
 
 ## Combining vaults
 
@@ -42,7 +42,7 @@ A Codex conversation from another device has no native thread here. Opening it c
 
 ## Agent instructions
 
-Open the current vault’s **Agent instructions** from the vault manager. **Common vault instructions** holds working rules used by both Claude and Codex conversations in that vault. Save them locally without an account, or sync them with the vault when connected.
+Open the current vault’s **Agent instructions** from **Vault settings**. **Common vault instructions** holds working rules used by both Claude and Codex conversations in that vault. Save them locally without an account, or sync them with the vault when connected.
 
 Each device’s terminal global instructions (Codex `AGENTS.override.md` or `AGENTS.md` in its home, Claude `CLAUDE.md`) are added to the common vault instructions as marked blocks when a vault opens and before each sync, so conversations on every device use them. The original files are only read; this device’s home folder is written as `~`. **Imported instructions** lists each block with its device and state. **Keep as my instructions** turns a block into ordinary text, and **Stop importing** removes it and stops importing it on every device. A block you edited is not replaced when its original changes; Tiller tells you instead, and also when devices have differing versions.
 
