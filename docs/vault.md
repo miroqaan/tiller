@@ -8,7 +8,7 @@ Click the **current vault name in the sidebar** and choose **Vault settings**. T
 
 | Action | What happens |
 |---|---|
-| **New vault** | Enter a name. Tiller creates `Documents/Tiller Vaults/<name>` automatically, adding `(2)`, `(3)`, etc. if a name is already occupied. No folder selection is needed. |
+| **New vault** | Enter a name. Tiller creates `Tiller Vaults/<name>` in your home folder automatically, adding `(2)`, `(3)`, etc. if a name is already occupied. No folder selection is needed. |
 | **From cloud** | Choose a remote vault, enter a local name and its encryption password. Tiller prepares a separate local vault at an automatic location and opens it in a new window, which downloads it. |
 | **Open folder** | Add an existing vault folder, or start a vault in an empty folder. Adding it to the list does not switch your current vault. |
 | **Name on this device → Save** | Change the displayed name on this device. The folder and vault identity stay the same. |
@@ -24,7 +24,7 @@ Select **Sync settings** for the current vault to open Tiller Sync. Sign in with
 
 Test access is assigned to selected accounts and is not granted by signing in alone. Paid subscriptions are not on sale yet. To receive a remote vault, choose **From cloud** under the vault list in **Vault settings**, sign in with GitHub if needed, select the remote vault, and enter its password and a name for this device. The imported vault then opens in a window of its own and downloads its contents; **Go to its window** brings that window forward again. Your current vault and connection are preserved. A remote vault already connected on this device is reused instead of creating another copy.
 
-Newly created and imported vaults use the operating system's Documents folder under `Tiller Vaults`. Existing vault paths, including the original `Documents/Tiller` vault, stay unchanged. Renaming changes only the display name. Development and isolated test profiles use a separate managed directory inside their profile. **Open folder** remains available for existing folders at any supported location. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
+Newly created and imported vaults go to `Tiller Vaults` in your home folder, outside Documents, which OneDrive may sync. **Change…** beside the location picks another folder for this device. Existing vault paths, including the original `Documents/Tiller` vault, stay unchanged. Renaming changes only the display name. Development and isolated test profiles use a separate managed directory inside their profile. **Open folder** remains available for existing folders at any supported location. Server address overrides and the experimental encrypted-folder transport are available in advanced settings; the ordinary setup does not require them. See [sync preview](sync.md) for encryption and recovery details.
 
 ## Combining vaults
 
