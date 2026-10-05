@@ -102,13 +102,13 @@ Close the app and the queue is still there when you come back.
 
 ## Status
 
-Tiller 0.1.0 is out as a **Windows x64 pre-release**. Download `Tiller-Setup-0.1.0-x64.exe` from the [Releases page](https://github.com/miroqaan/tiller/releases). The installer is not code-signed yet, so Windows SmartScreen warns about an unknown publisher; you can check the download against `SHA256SUMS.txt` first. There are no automatic updates yet — [watch this repository](https://github.com/miroqaan/tiller/subscription) to hear about new releases.
+Tiller 0.2.0 is out as a **Windows x64 pre-release**. Download `Tiller-Setup-0.2.0-x64.exe` from the [Releases page](https://github.com/miroqaan/tiller/releases). The installer is not code-signed yet, so Windows SmartScreen warns about an unknown publisher; you can check the download against `SHA256SUMS.txt` first. There are no automatic updates yet — [watch this repository](https://github.com/miroqaan/tiller/subscription) to hear about new releases. Sync and Tiller sign-in are not in the installer yet (shown as coming soon), so the phone app cannot connect to it.
 
 The vault and sync features documented here are an implemented development preview and **may be ahead of the latest release**. The staging service and GitHub sign-in have been tested; paid billing and real cross-OS or physical-device sync acceptance remain unfinished. Custom service addresses and the encrypted-folder option are advanced settings. The folder option is for local testing on one filesystem; Dropbox-style file replication is unsupported.
 
 | Platform | State |
 |---|---|
-| Windows | x64 pre-release installer published (0.1.0, not code-signed) |
+| Windows | x64 pre-release installer published (0.2.0, not code-signed) |
 | macOS | Not built or notarized yet |
 | Linux | AppImage planned |
 
