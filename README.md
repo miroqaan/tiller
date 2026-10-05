@@ -72,7 +72,7 @@ Close the app and the queue is still there when you come back.
 
 **File links.** Office documents, PDFs and Aseprite originals (`.aseprite`, `.ase`) open in the operating system's associated app. PNG previews stay visible in the conversation; text files open in the reader. Local paths support spaces and Unicode names.
 
-**Search that reaches closed threads.** Ctrl+F finds threads by title and by what was said in them, including Codex threads that are not open.
+**Search that reaches every thread.** Ctrl+F finds threads by title and by what was said in them: open or closed, Claude or Codex, from this device or another. Every word of the query must appear, in any order; spacing, case and full/half width do not matter, so Korean and Japanese match inside words, and commit hashes, paths and URLs match as written. A result opens the thread at that message; "Mine only" and a period narrow the list.
 
 **Find within a document.** Hover, focus, or select text in the reader and press Ctrl+F. Selected text fills the query; matches are highlighted, Enter / Shift+Enter moves between them, and Esc closes search. Outside the reader, Ctrl+F still searches conversations.
 
