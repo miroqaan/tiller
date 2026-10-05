@@ -6,6 +6,10 @@ each with its notes. This file collects them in one place.
 The version numbers are Tiller's own. The engine versions a release carries are
 named in its notes, because updating an engine means releasing the app.
 
+## Unreleased
+
+- **Japanese UI.** The desktop app and the phone app are available in Japanese (日本語), beside English and Korean. Tiller picks it when the system language is Japanese, or choose it in App settings › Language. Dates and times follow the language.
+
 ## 0.1.0 — 2026-09-29
 
 First public build, **Windows x64 only**, as a pre-release. The installer is

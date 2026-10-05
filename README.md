@@ -98,7 +98,7 @@ Close the app and the queue is still there when you come back.
 
 **A window for each vault.** As in Obsidian, every vault opens in a window of its own. Opening another vault leaves the current window, its running work and its sync as they are; a vault that already has a window comes to the front. Closing the last window quits Tiller, and the next start opens the same windows again.
 
-**English and Korean UI**, following the system language.
+**English, Korean and Japanese UI**, following the system language or the one you pick in App settings. The phone app follows the phone's language.
 
 ## Status
 
