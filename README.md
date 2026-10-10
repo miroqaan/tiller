@@ -62,6 +62,8 @@ Close the app and the queue is still there when you come back.
 
 **Open a previous conversation in another window.** Ctrl+click the tab bar's back arrow to open its previous conversation in a new window, keeping the current tab and navigation history in place. A plain click still goes back in the current tab.
 
+The AI-organized sidebar also has a **New thread** button above its organization status, matching the chronological view.
+
 **Permissions you can see.** Approval requests arrive as an inline card — allow once, always allow, deny — with a per-thread permission mode (default, accept edits, plan, bypass). Only a fresh conversation created by an orchestrator inherits its permission mode. Existing conversations keep their own mode when assigned or linked to a task; copies keep the source conversation’s mode.
 
 **Side chat.** Ask something aside without it going into the thread: the dashed speech-bubble button in a thread's header (or ⌘J / Ctrl+J) opens a side chat that knows the thread's conversation so far. It is never saved: not in the thread list, search or vault, and neither engine keeps its transcript. It can read files but not change them, and it is gone when you close it or switch threads.
