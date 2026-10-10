@@ -34,7 +34,7 @@ Tiller is a frontend that fills that gap. It does not replace the agent; it driv
 | Enter | Send | **Add to queue** |
 | Tab | Send | **Send into the running turn (steer)** |
 | Shift+Enter | Newline | Newline |
-| Esc (empty input) | — | Interrupt the current turn |
+| Esc (empty input) | Cancel the selected reply | Interrupt the current turn |
 | Ctrl+F | Search conversations | Search conversations |
 
 Queued messages sit right above the composer. Until the moment one is sent you can:
@@ -47,6 +47,8 @@ Queued messages sit right above the composer. Until the moment one is sent you c
 Close the app and the queue is still there when you come back.
 
 ## What else is in it
+
+**Reply to a message.** Choose **Reply** on an earlier message to ask about that specific part of the conversation. The composer keeps your draft and attachments, and both engines receive the selected quote with your question. Sent replies retain a preview that links back to the original message, including after reopening the conversation.
 
 **Two engines, one window.** New conversations start on Claude until you pick another engine; after that they start on the engine you picked last, including by switching a thread's engine. The model, effort and permission mode you picked last carry over to new threads too (model and effort per engine). Both engines get the same queue, steering, approvals, model and effort pickers, plan usage and notifications. A thread can be **carried to the other engine mid-conversation** and continue there.
 
