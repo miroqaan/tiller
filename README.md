@@ -11,7 +11,7 @@
 
 ---
 
-Messages you send mid-turn land in a **visible queue** you can edit, reorder and merge before they go out. **Tab** sends one straight into the turn that is running, which keeps the work it has already done.
+Messages you send mid-turn land in a **visible queue** you can edit, reorder and merge before they go out. **Tab** sends one straight into the turn that is running, which keeps the work it has already done. Completed parallel tasks appear in the conversation immediately, even while the agent is busy or the queue is paused; only the agent's follow-up waits.
 
 ![Two follow-ups queued while a story streams, one edited and merged into the other, then Tab sends one at once and the queued message goes out after the reply](docs/queue-steer.gif)
 
