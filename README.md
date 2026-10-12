@@ -133,6 +133,7 @@ Before opening an issue, a quick look through [existing issues](https://github.c
 ## Notes
 
 - In repository development builds, a requested restart waits for conversations, queues, approvals and background work to finish. Immediate interruption requires an explicit user request.
+- A vault's home-folder reference does not reserve every project beneath it: another vault can link an individual working folder. Working-file sync still excludes folders owned by another vault. Unchanged sync journals are not rewritten on each poll.
 
 - "Bypass permissions" mode runs everything without asking, including files outside the project. Turn it on only when you mean it.
 - The optional computer-use tools move the real mouse and type on the real keyboard of the machine Tiller runs on. Expect the cursor to be taken over while a turn runs.
