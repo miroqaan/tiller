@@ -132,6 +132,8 @@ Before opening an issue, a quick look through [existing issues](https://github.c
 
 ## Notes
 
+- In repository development builds, a requested restart waits for conversations, queues, approvals and background work to finish. Immediate interruption requires an explicit user request.
+
 - "Bypass permissions" mode runs everything without asking, including files outside the project. Turn it on only when you mean it.
 - The optional computer-use tools move the real mouse and type on the real keyboard of the machine Tiller runs on. Expect the cursor to be taken over while a turn runs.
 
