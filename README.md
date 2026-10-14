@@ -62,6 +62,8 @@ Long messages you send show a six-line preview. Click the preview or **Expand** 
 
 Resting existing conversations can be removed from a delegated task list without deleting their history or their assignments to other conversations. Idle conversations are labeled **Idle**. After restart or sync, Tiller clears a stale assignment only when it can match a delivered result to that assignment; older or uncertain assignments can be removed manually.
 
+The active Reference research button uses only a document-and-magnifier icon in the composer. The tools menu keeps names and uses distinct icons for research, reference documents, self-improvement, and goal loops.
+
 **Reference research and improvement modes.** Turn on **Reference research** in the composer's tools menu to have the agent actively research and apply references during its work. **Reference documents** opens the studies and one-shot research form; `/reference <topic>` also starts a study. A new draft automatically creates a conversation for the results using its selected folder, engine, model and effort. **Loops** lets you specify a goal and verification criteria, with safety tests, candidate comparisons and optional feedback that does not block progress. The separate **Recursive self-improvement** toggle lets the agent choose the next useful improvement itself, verify it, and continue into another round. Stop or turn the toggle off to end automatic continuation. Each conversation keeps its own settings. App settings also offers an optional CPU and memory usage display, off by default.
 
 **Open the folders behind a thread.** Right-click a conversation to open its history folder or its working folder in the system file manager.
