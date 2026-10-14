@@ -48,6 +48,8 @@ Close the app and the queue is still there when you come back.
 
 ## What else is in it
 
+Long messages you send show a six-line preview. Click the preview or **Expand** to read the full text, and **Collapse** to fold it again. Attachments remain visible; copying or running the message again uses the complete text.
+
 **Reply to a message.** Choose **Reply** on an earlier message to ask about that specific part of the conversation. The composer keeps your draft and attachments, and both engines receive the selected quote with your question. Sent replies retain a preview that links back to the original message, including after reopening the conversation.
 
 **Two engines, one window.** New conversations start on Claude until you pick another engine; after that they start on the engine you picked last, including by switching a thread's engine. The model, effort and permission mode you picked last carry over to new threads too (model and effort per engine). Both engines get the same queue, steering, approvals, model and effort pickers, plan usage and notifications. A thread can be **carried to the other engine mid-conversation** and continue there.
