@@ -70,7 +70,7 @@ The active Reference research button uses only a document-and-magnifier icon in 
 
 **Open a linked file's folder.** Right-click a file link in a conversation or document preview and choose **Open folder**. Folder links open that folder itself; files stay unopened.
 
-**Open a previous conversation in another window.** Ctrl+click the tab bar's back arrow to open its previous conversation in a new window, keeping the current tab and navigation history in place. A plain click still goes back in the current tab.
+**Open a previous conversation in a new tab.** Ctrl+click the tab bar's back arrow to open its previous conversation in a new tab in that pane, keeping the original tab and navigation history in place. A plain click still goes back in the current tab.
 
 The AI-organized sidebar also has a **New thread** button above its organization status, matching the chronological view.
 
