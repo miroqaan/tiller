@@ -56,6 +56,8 @@ Copy buttons in file previews stay at the visible top right while their text, co
 
 **Split panes by dragging.** Drag a tab or a conversation from the sidebar onto a pane's top, bottom, left or right edge to split it. Splitting is available only by dragging; the tab bar and context menus have no split commands. Mix stacked and side-by-side panes, drag their dividers to resize, and double-click a divider for equal shares. The layout and proportions are restored after restarting.
 
+**Linked browser windows.** Open an embedded browser page in its own window using its address-bar button, tab menu, or a drag outside the window. The original tab keeps a window marker, and the new window shows its conversation name and a **Return to tab** button. The same live page and AI connection continue, including unsent input, scroll position and navigation history. Closing the window returns the page to its original tab; closing the original tab closes the page and its window.
+
 **Integrated terminal.** Use the terminal icon in the tab bar or Ctrl+backtick to open a shell below the conversation, starting in its working folder. Open separate terminal tabs or choose another folder, resize the panel, and interrupt commands with Ctrl+C. Hiding the panel keeps commands running; closing a terminal ends its shell. Windows uses PowerShell, while macOS and Linux use your login shell. Terminals stay local and are not restored after app restart. A scheduled automatic restart waits until all terminal shells have exited.
 
 Long messages you send show a six-line preview. Click the preview or **Expand** to read the full text, and **Collapse** to fold it again. Attachments remain visible; copying or running the message again uses the complete text.
