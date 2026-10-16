@@ -52,6 +52,8 @@ The tab bar shows sync notices only when attention is needed. Routine sync progr
 
 Text and code previews, including Markdown source, wrap long lines by default. Use **Word wrap** to switch to horizontal scrolling; Tiller remembers the setting on this device. File contents and copied text stay unchanged.
 
+Copy buttons in file previews stay at the visible top right while their text, code block or table continues below. They copy the entire block, including the parts outside the visible area.
+
 **Integrated terminal.** Use the terminal icon in the tab bar or Ctrl+backtick to open a shell below the conversation, starting in its working folder. Open separate terminal tabs or choose another folder, resize the panel, and interrupt commands with Ctrl+C. Hiding the panel keeps commands running; closing a terminal ends its shell. Windows uses PowerShell, while macOS and Linux use your login shell. Terminals stay local and are not restored after app restart. A scheduled automatic restart waits until all terminal shells have exited.
 
 Long messages you send show a six-line preview. Click the preview or **Expand** to read the full text, and **Collapse** to fold it again. Attachments remain visible; copying or running the message again uses the complete text.
