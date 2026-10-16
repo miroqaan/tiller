@@ -54,6 +54,8 @@ Text and code previews, including Markdown source, wrap long lines by default. U
 
 Copy buttons in file previews stay at the visible top right while their text, code block or table continues below. They copy the entire block, including the parts outside the visible area.
 
+**Stacked panes.** Use **Split below** in the tab bar, or right-click a tab to split above, below, left or right. Dragging a tab or conversation onto a pane's top or bottom edge also stacks it. Mix stacked and side-by-side panes, drag their dividers to resize, and double-click a divider for equal shares. The layout and proportions are restored after restarting.
+
 **Integrated terminal.** Use the terminal icon in the tab bar or Ctrl+backtick to open a shell below the conversation, starting in its working folder. Open separate terminal tabs or choose another folder, resize the panel, and interrupt commands with Ctrl+C. Hiding the panel keeps commands running; closing a terminal ends its shell. Windows uses PowerShell, while macOS and Linux use your login shell. Terminals stay local and are not restored after app restart. A scheduled automatic restart waits until all terminal shells have exited.
 
 Long messages you send show a six-line preview. Click the preview or **Expand** to read the full text, and **Collapse** to fold it again. Attachments remain visible; copying or running the message again uses the complete text.
