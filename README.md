@@ -90,7 +90,7 @@ The AI-organized sidebar also has a **New thread** button above its organization
 
 **Side chat.** Ask something aside without it going into the thread: the dashed speech-bubble button in a thread's header (or ⌘J / Ctrl+J) opens a side chat that knows the thread's conversation so far. It is never saved: not in the thread list, search or vault, and neither engine keeps its transcript. It can read files but not change them, and it is gone when you close it or switch threads.
 
-**Local videos.** Local video links such as `[title](clip.mp4)` or `![title](clip.mp4)` play inside the conversation and reader pane, with playback, seeking, volume and fullscreen controls. Absolute and relative paths work; wrap paths with spaces in `<...>`. MP4/M4V, WebM, MOV and OGV are recognized; codec support depends on the platform. Videos stream from disk without autoplay.
+**Local videos.** Local video links such as `[title](clip.mp4)` or `![title](clip.mp4)` play inside the conversation and reader pane, with playback, seeking, volume and fullscreen controls. Choose playback speed directly from the dropdown: 0.5×, 0.75×, 1×, 1.25×, 1.5× or 2×. Absolute and relative paths work; wrap paths with spaces in `<...>`. MP4/M4V, WebM, MOV and OGV are recognized; codec support depends on the platform. Videos stream from disk without autoplay.
 
 **Remove project groups without losing conversations.** Use a project’s … menu or right-click menu to delete the group after confirmation; its conversations return to the unfiled list and files are left untouched. Deleting a thread removes it from its engine as well, Codex threads included, and it stays deleted.
 
