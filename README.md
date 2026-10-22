@@ -50,6 +50,8 @@ Close the app and the queue is still there when you come back.
 
 **Prompt refinement.** Click the composer’s refinement button to cycle through **refine and send immediately**, **review and edit before sending**, and **off**. The two active modes have different icons. Refinement uses the selected engine and preserves attachments and quoted replies. Each conversation remembers its choice; previously enabled refinement keeps the review step.
 
+**Requests before work.** Enable a schedule in App settings, choose a work start time and individual days, or use the Weekdays and Weekend presets. Two hours before work, Tiller sends one short request to every signed-in Claude and Codex account without changing the selected account or creating conversations and completion notifications. The feature is off by default and shows per-account results; provider usage windows remain governed by the provider.
+
 The tab bar shows sync notices only when attention is needed. Routine sync progress remains available in the vault indicator and sync settings.
 
 Text and code previews, including Markdown source, wrap long lines by default. Use **Word wrap** to switch to horizontal scrolling; Tiller remembers the setting on this device. File contents and copied text stay unchanged.
