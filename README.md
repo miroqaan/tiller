@@ -48,7 +48,7 @@ Close the app and the queue is still there when you come back.
 
 ## What else is in it
 
-**Prompt refinement.** Click the composer’s refinement button to cycle through **refine and send immediately**, **review and edit before sending**, and **off**. The two active modes have different icons. Refinement uses the selected engine and preserves attachments and quoted replies. Each conversation remembers its choice; previously enabled refinement keeps the review step.
+**Prompt refinement.** Click the composer’s refinement button to cycle through **refine and send immediately**, **review and edit before sending**, and **off**. The two active modes have different icons. Refinement uses the selected engine and preserves attachments and quoted replies. Each conversation remembers its choice; previously enabled refinement keeps the review step. An existing conversation in immediate mode still sends to its original pane when you focus another pane. If its composer is closed or the send fails, the prepared text waits to be sent without changing the selected mode.
 
 **Requests before work.** Enable a schedule in App settings, choose a work start time and individual days, or use the Weekdays and Weekend presets. Two hours before work, Tiller sends one short request to every signed-in Claude and Codex account without changing the selected account or creating conversations and completion notifications. The feature is off by default and shows per-account results; provider usage windows remain governed by the provider.
 
