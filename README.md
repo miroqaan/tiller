@@ -48,6 +48,8 @@ Close the app and the queue is still there when you come back.
 
 ## What else is in it
 
+**Copy instructions between vaults.** In vault instruction settings, choose **Import from another vault**, select saved documents from another registered local vault, preview them, and add independent copies. Existing instructions and drafts are preserved; duplicate names receive a number. Imported copies start with Use and automatic updates off, and retain their source in change history.
+
 **Personal and team knowledge (development build).** Manage requirements and source-backed wiki pages in vault instruction settings, select complete requirements for a conversation, and retain verification evidence and restorable history. AI reports do not approve acceptance criteria. Tiller teams share explicitly published encrypted documents with roles and separate seat subscriptions; engine accounts are independent. Premium combines sync and wiki. Team server rollout and commercial billing activation are required before these services are available in released installers. Local reference tools can also run on demand, with a visible **Referencing** indicator while they run.
 
 **Prompt refinement.** Click the composer’s refinement button to cycle through **refine and send immediately**, **review and edit before sending**, and **off**. The two active modes have different icons. Refinement uses the selected engine and preserves attachments and quoted replies. Each conversation remembers its choice; previously enabled refinement keeps the review step. An existing conversation in immediate mode still sends to its original pane when you focus another pane. If its composer is closed or the send fails, the prepared text waits to be sent without changing the selected mode.
