@@ -116,7 +116,7 @@ The AI-organized sidebar also has a **New thread** button above its organization
 
 **Separate drafts for each conversation.** Switching threads restores that thread’s unsent text and image attachments during the current app session.
 
-**Images and diagrams.** Paste or drop images into the composer; they travel with a queued or steered message. Answers render `mermaid` diagrams, `svg` blocks and local image files, and in Codex threads you can ask for a picture and get one. Images and videos in one message share an enlarged viewer: arrow keys move between them, Esc closes it. Right-click any picture to copy it, or its file path.
+**Images and diagrams.** Paste or drop images into the composer; they travel with a queued or steered message. Answers render `mermaid` diagrams, `svg` blocks and local image files, and in Codex threads you can ask for a picture and get one. Images and videos in one message share an enlarged viewer: arrow keys move between them, Esc closes it. Clicking an image in another pane keeps the conversation's reading position. Right-click any picture to copy it, or its file path.
 
 **File links.** Office documents, PDFs and Aseprite originals (`.aseprite`, `.ase`) open in the operating system's associated app. PNG previews stay visible in the conversation; text files open in the reader. Local paths support spaces and Unicode names.
 
