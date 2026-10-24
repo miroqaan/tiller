@@ -58,6 +58,8 @@ Close the app and the queue is still there when you come back.
 
 **Requests before work.** Enable a schedule in App settings, choose a work start time and individual days, or use the Weekdays and Weekend presets. Two hours before work, Tiller sends one short request to every signed-in Claude and Codex account without changing the selected account or creating conversations and completion notifications. The feature is off by default and shows per-account results; provider usage windows remain governed by the provider.
 
+Development builds include **Split mode**: arrange open conversations in 4, 8, 16 or 32 panes across selected monitors, in recent activation order. Preview the layout, adjust each monitor's share, and expand a conversation to work in it. Exiting split mode keeps the original windows and tabs in place.
+
 The tab bar shows sync notices only when attention is needed. Routine sync progress remains available in the vault indicator and sync settings.
 
 Text and code previews, including Markdown source, wrap long lines by default. Use **Word wrap** to switch to horizontal scrolling; Tiller remembers the setting on this device. File contents and copied text stay unchanged.
