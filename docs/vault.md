@@ -44,11 +44,7 @@ A Codex conversation from another device has no native thread here. Opening it c
 
 Open the current vault’s **Agent instructions** from **Vault settings**. **Common vault instructions** holds working rules used by both Claude and Codex conversations in that vault. Save them locally without an account, or sync them with the vault when connected. To rename a saved instruction, select it, replace the name shown in the name field, and choose **Rename selected**; its content and drafts are kept.
 
-Each device’s terminal global instructions (Codex `AGENTS.override.md` or `AGENTS.md` in its home, Claude `CLAUDE.md`) are added to the common vault instructions as marked blocks when a vault opens and before each sync, so conversations on every device use them. The original files are only read; this device’s home folder is written as `~`. **Imported instructions** lists each block with its device and state. **Keep as my instructions** turns a block into ordinary text, and **Stop importing** removes it and stops importing it on every device. A block you edited is not replaced when its original changes; Tiller tells you instead, and also when devices have differing versions.
-
-**Additional instructions** automatically finds existing global and project files for the selected engine account and working folder, including Codex `AGENTS.md` / `AGENTS.override.md` and Claude `CLAUDE.md` / `CLAUDE.local.md`. Expand a source to see its original path and contents, then edit and save that original file. Global edits affect other vaults using that engine account. Here, “project” means the actual working folder’s instruction scope, rather than a conversation group name.
-
-Tiller does not create a separate global/project settings hierarchy. Apart from the imported global instructions above, it does not copy existing files into the vault. Editing a source does not upload it directly; project instruction files can be selected separately in **Work file sync**. Native engines still decide which instructions to load, including precedence, size limits, settings, imports and rules; the panel identifies shadowed or conditional sources where possible.
+Tiller sends the same instructions to Claude and Codex: the vault’s instructions with **Use** checked, in full. The instruction files each engine would find on its own are switched off in Tiller conversations. Claude does not load `CLAUDE.md`, `CLAUDE.local.md`, `.claude/rules` or `AGENTS.md` from the working folder, its parents or its subfolders, and Codex does not load project `AGENTS.md` files. Neither engine reads the terminal’s global instructions (`~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`), because Tiller runs them on accounts of its own; copies of global instructions that earlier versions placed in those accounts are moved to `backups/account-instructions` in Tiller’s device-state directory. Tiller does not copy instruction files into the vault: to keep using what one says, copy it into a vault instruction.
 
 Saved vault instructions take effect in new conversations, new side chats, or after closing and reopening a conversation. Running work keeps its current instructions. An unsaved editor draft stays available when you close the panel, collapse the sidebar or switch the interface language during this app session.
 
@@ -58,10 +54,10 @@ The vault-owned file is `.tiller/instructions.md`. Update Tiller on every connec
 
 ## Where your files live
 
-The normal vault is the operating system's Documents folder plus `Tiller`. Documents may itself be redirected, for example by OneDrive. Each app project has a folder, and each conversation has a session folder:
+On a new installation the default vault is `Tiller Vaults/Tiller` in your home folder. A default vault that an earlier version made in `Documents/Tiller` stays there until you move it (see above). Each app project has a folder, and each conversation has a session folder:
 
 ```text
-Documents/Tiller/
+~/Tiller Vaults/Tiller/
   .tiller/                       vault metadata and local backups
     instructions.md              common agent instructions; included in vault sync
   <project>/
