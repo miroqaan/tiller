@@ -1,6 +1,6 @@
 # Personal vault sync preview
 
-Vault synchronization is implemented in the development preview. **No public download release or paid subscription service is available yet.** A staging cloud service is deployed, and GitHub sign-in and encrypted sync have been tested against it. Paid billing, real physical devices and Windows/macOS/Linux interoperability still need acceptance testing.
+Vault synchronization is implemented in the development preview. **Sync is not in the released installers yet (they show it as coming soon), and no paid subscription service is available.** A staging cloud service is deployed, and GitHub sign-in and encrypted sync have been tested against it. Paid billing, real physical devices and Windows/macOS/Linux interoperability still need acceptance testing.
 
 The default is **Local only**. You can use local vaults without a sync account. Connecting a vault explicitly enables an encrypted remote copy of its supported conversation data. This preview is for your own vaults and devices; it does not provide shared team vaults.
 

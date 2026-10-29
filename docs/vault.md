@@ -42,7 +42,7 @@ A Codex conversation from another device has no native thread here. Opening it c
 
 ## Agent instructions
 
-Open the current vault’s **Agent instructions** from **Vault settings**. **Common vault instructions** holds working rules used by both Claude and Codex conversations in that vault. Save them locally without an account, or sync them with the vault when connected. To rename a saved instruction in a development build, select it, replace the name shown in the name field, and choose **Rename selected**; its content and drafts are kept.
+Open the current vault’s **Agent instructions** from **Vault settings**. **Common vault instructions** holds working rules used by both Claude and Codex conversations in that vault. Save them locally without an account, or sync them with the vault when connected. To rename a saved instruction, select it, replace the name shown in the name field, and choose **Rename selected**; its content and drafts are kept.
 
 Each device’s terminal global instructions (Codex `AGENTS.override.md` or `AGENTS.md` in its home, Claude `CLAUDE.md`) are added to the common vault instructions as marked blocks when a vault opens and before each sync, so conversations on every device use them. The original files are only read; this device’s home folder is written as `~`. **Imported instructions** lists each block with its device and state. **Keep as my instructions** turns a block into ordinary text, and **Stop importing** removes it and stops importing it on every device. A block you edited is not replaced when its original changes; Tiller tells you instead, and also when devices have differing versions.
 
